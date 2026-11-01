@@ -802,6 +802,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
       frameTo: (stageH - h) / 2,
       listTo: stageH / 2 - centers[0],
       centers: centers,
+      stageH: stageH,
       lead: stageH * .9,                                   // scroll spent lifting the intro and centring
       roll: centers[centers.length - 1] - centers[0],     // scroll spent turning the dial
       hold: stageH * .35,                                 // a beat on Wander before the page moves on
@@ -819,10 +820,10 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     likesIntro.style.transform = 'translateY(' + (-p * (dial.introH + 80)) + 'px)';
     likesIntro.style.opacity = 1 - clamp(p * 1.4);
     frame.style.transform = 'translateY(' + (dial.frameFrom + (dial.frameTo - dial.frameFrom) * p) + 'px)';
-    // the list waits off to the side and only rises in once the photo has settled in the centre
-    var enter = clamp((p - .55) / .45);
-    likesList.style.opacity = enter;
-    likesList.style.transform = 'translateY(' + (dial.listTo + (1 - enter) * 60 - d) + 'px)';
+    // the list rises in from below the screen, arriving as the photo settles in the centre
+    var enter = ease(clamp((p - .3) / .7));
+    likesList.style.opacity = '';
+    likesList.style.transform = 'translateY(' + (dial.listTo + (1 - enter) * (dial.stageH - dial.listTo) - d) + 'px)';
     var dialing = p >= .98;
     likesList.classList.toggle('dialing', dialing);
     if (!dialing) { showLike('roots'); return; }
