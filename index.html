@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,300..700&display=swap">
-<script>if (/[?&]exp=timeline\b/.test(location.search)) document.documentElement.classList.add('exp-h');</script>
 <style>
 /* Layout: one calm page in the Apple manner. A single ground colour runs top to bottom; the Fluo case fades into a dark product stage and back out.
    Type and palette carry over from the original Canva portfolio: Bebas Neue for headlines and figures, Archivo for text, sage and mustard on warm paper.
@@ -257,22 +256,8 @@ nav ul a:hover { color: var(--ink); }
 .xp h4 { font-size: 18px; letter-spacing: -0.015em; }
 .xp .org { color: var(--muted); font-size: 15px; }
 .xp li p { margin-top: 6px; font-size: 15px; color: var(--muted); }
-/* Option 1 (default): the title stays pinned while the timeline scrolls past */
+/* the title stays pinned while the roles scroll past */
 .xp h2 { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 92px); align-self: start; }
-/* Option 2 (?exp=timeline): centered title, horizontal timeline read left to right, oldest first */
-.xp-nav { display: none; }
-.exp-h .xp { grid-template-columns: minmax(0, 1fr); gap: 40px; }
-.exp-h .xp h2 { position: static; text-align: center; }
-.exp-h .xp ol { display: flex; gap: 0; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; padding-top: 8px;
-  -webkit-mask-image: linear-gradient(to right, #000 85%, transparent); mask-image: linear-gradient(to right, #000 85%, transparent); }
-.exp-h .xp ol.at-end { -webkit-mask-image: none; mask-image: none; }
-.exp-h .xp ol::-webkit-scrollbar { display: none; }
-.exp-h .xp li { flex: 0 0 min(320px, 82vw); scroll-snap-align: start; grid-template-columns: minmax(0, 1fr); align-content: start; position: relative; padding: 30px 24px 0 0; border-top: 2px solid var(--line); border-bottom: 0; }
-.exp-h .xp li::before { content: ""; position: absolute; top: -7px; left: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
-.exp-h .xp-nav { display: flex; justify-content: center; gap: 12px; }
-.xp-nav button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--bg); font-size: 18px; cursor: pointer; }
-.xp-nav button:hover:not(:disabled) { border-color: var(--muted); }
-.xp-nav button:disabled { opacity: .35; cursor: default; }
 .skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: clamp(48px, 6vw, 80px); }
 .skills h4 { font-size: 16px; color: var(--ink); margin-bottom: 8px; }
 .skills p { font-size: 15px; color: var(--muted); }
@@ -619,7 +604,6 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
         <li><span class="when">2020 – now</span><div><h4>Digital Content Creator</h4><div class="org">Xiaohongshu &amp; Douyin</div></div></li>
         <li><span class="when">2020 – 2026</span><div><h4>BSc Food, Nutrition &amp; Health, Commerce minor</h4><div class="org">University of British Columbia</div></div></li>
       </ol>
-      <div class="xp-nav"><button type="button" data-dir="-1" aria-label="Earlier roles">←</button><button type="button" data-dir="1" aria-label="Later roles">→</button></div>
     </div>
     <div class="skills">
       <div><h4>Research &amp; analytics</h4><p>Survey design, in-depth interviews, regression modeling, thematic analysis, data visualization. Python, Stata, Excel, Qualtrics, NVivo</p></div>
@@ -717,27 +701,6 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
       if (btn.dataset.panel === 'ask') playChat();
     });
   });
-
-  // Experience option 2: oldest first, arrow buttons for mouse users
-  if (root.classList.contains('exp-h')) {
-    var track = document.querySelector('.xp ol');
-    Array.prototype.slice.call(track.children).reverse().forEach(function (li) { track.appendChild(li); });
-    var navBtns = document.querySelectorAll('.xp-nav button');
-    function syncNav() {
-      var max = track.scrollWidth - track.clientWidth - 2;
-      navBtns[0].disabled = track.scrollLeft <= 2;
-      navBtns[1].disabled = track.scrollLeft >= max;
-      track.classList.toggle('at-end', track.scrollLeft >= max);
-    }
-    navBtns.forEach(function (b) {
-      b.addEventListener('click', function () {
-        track.scrollBy({ left: +b.dataset.dir * track.firstElementChild.offsetWidth * 1.05, behavior: reduce ? 'auto' : 'smooth' });
-      });
-    });
-    track.addEventListener('scroll', syncNav, { passive: true });
-    window.addEventListener('resize', syncNav);
-    syncNav();
-  }
 
   // Copy email
   document.getElementById('copy-email').addEventListener('click', function () {
