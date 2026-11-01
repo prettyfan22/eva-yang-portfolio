@@ -270,7 +270,7 @@ nav ul a:hover { color: var(--ink); }
 .likes dt { font: 400 22px/1.1 var(--display); letter-spacing: .02em; padding-top: 1px; }
 .likes dd { margin: 0; font-size: 16px; color: var(--muted); }
 .likes dt { transition: color .3s; }
-#interests .story-media { padding-top: 240px; } /* the list starts beside "From there…" so the roots come first */
+#interests .story-media { gap: 28px; }
 .likes div.on dt { color: var(--figure); }
 /* one pinned frame that crossfades to the photo of the interest being read */
 .frame { position: relative; margin: 8px 0 0; width: min(100%, 260px); aspect-ratio: 4 / 5; border-radius: var(--radius); overflow: hidden; background: var(--surface); }
@@ -317,7 +317,6 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   .skills { grid-template-columns: minmax(0, 1fr); }
   .xp h2, .research > .copy:first-child { position: static; }
   .frame { display: none; }
-  #interests .story-media { padding-top: 0; }
 }
 @media (max-width: 680px) {
   nav ul li:not(:last-child) { display: none; }
@@ -639,7 +638,6 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     <div class="story-text">
       <h3>Off the clock</h3>
       <p class="heart"><b>At heart, I'm <span>Wuhanese</span>.</b>Nothing beats a bowl of <strong>热干面</strong> (reganmian): hot dry noodles coated in an equally dry sesame paste, born on the Hankou docks in the 1930s as a quick, filling breakfast for dockworkers.</p>
-      <p>From there, most of what I love comes down to exploring: new scents, new flavours, new places.</p>
       <figure class="frame" aria-hidden="true">
         <img class="on" src="img/wuhan.jpg" alt="" data-like="roots" loading="lazy" width="640" height="800">
         <img src="img/like-smell.jpg" alt="" data-like="smell" loading="lazy" width="640" height="800">
@@ -650,6 +648,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
       </figure>
     </div>
     <div class="story-media">
+      <p class="lede likes-intro">From there, most of what I love comes down to exploring: new scents, new flavours, new places.</p>
       <dl class="likes reveal">
         <div data-like="smell"><dt>Smell</dt><dd>For perfume, I reach for santal, pink pepper rose and osmanthus: cool, woody, unisex scents that help me unwind. They're easy to share with almost anyone, and quietly say calm, mature and capable. At home, it's bergamot and rose oils.</dd></div>
         <div data-like="sip"><dt>Sip</dt><dd>My mornings start with an iced pour-over, made with Geisha beans if my budget worked out that month. My evenings end with a glass of French or Napa Chardonnay.</dd></div>
@@ -760,7 +759,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   // The active row is the last one whose top has passed the middle of the screen; before that, the roots photo
   function syncLikes() {
     var key = 'roots';
-    likeRows.forEach(function (row) { if (row.getBoundingClientRect().top < innerHeight * 0.55) key = row.dataset.like; });
+    likeRows.forEach(function (row) { if (row.getBoundingClientRect().top < innerHeight * 0.45) key = row.dataset.like; });
     showLike(key);
   }
   addEventListener('scroll', syncLikes, { passive: true });
