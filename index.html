@@ -56,7 +56,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 [hidden] { display: none !important; }
 
 .wrap { max-width: 1200px; margin: 0 auto; padding-left: max(22px, env(safe-area-inset-left, 0px)); padding-right: max(22px, env(safe-area-inset-right, 0px)); }
-section { padding-block: clamp(80px, 12vw, 160px); }
+section { padding-block: clamp(72px, 9vw, 120px); }
 
 h1, h2, h3, h4 { margin: 0; font-weight: 600; letter-spacing: -0.015em; text-wrap: balance; }
 h1, h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: .01em; line-height: .9; }
@@ -112,7 +112,8 @@ nav ul a:hover { color: var(--ink); }
 .link-more:hover { text-decoration: underline; text-underline-offset: 4px; }
 
 /* Fluo stage */
-.fluo-stage { background: linear-gradient(to bottom, var(--bg) 0, var(--f-bg) 320px, var(--f-bg) calc(100% - 320px), var(--bg) 100%); color: var(--f-ink); padding-block: 360px; }
+.fluo-stage { background: linear-gradient(to bottom, var(--bg) 0, var(--f-bg) 200px, var(--f-bg) calc(100% - 200px), var(--bg) 100%); color: var(--f-ink); padding-block: 220px; }
+#fluo + #nutea { padding-top: clamp(24px, 3vw, 48px); }
 .fluo-stage { font-family: var(--fluo); }
 .fluo-stage .story-text p { color: var(--f-muted); }
 .fluo-stage .story-text p strong { color: var(--f-ink); font-weight: 500; }
@@ -305,7 +306,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   .story-text { position: static; }
   .steps { display: none; }
   .chapter { min-height: 0; padding-block: 56px 0; }
-  .fluo-stage { padding-block: 280px; }
+  .fluo-stage { padding-block: 160px; }
   .skills { grid-template-columns: minmax(0, 1fr); }
   .xp h2 { position: static; }
 }
