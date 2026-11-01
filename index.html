@@ -824,7 +824,9 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     var enter = ease(clamp((p - .3) / .7));
     likesList.style.opacity = '';
     likesList.style.transform = 'translateY(' + (dial.listTo + (1 - enter) * (dial.stageH - dial.listTo) - d) + 'px)';
-    var dialing = p >= .98;
+    // Smell takes over the frame the moment it lines up with the photo's middle (within a few pixels)
+    var fr = frame.getBoundingClientRect(), first = likeRows[0].getBoundingClientRect();
+    var dialing = Math.abs(first.top + first.height / 2 - (fr.top + fr.height / 2)) < 14 || d > 0;
     likesList.classList.toggle('dialing', dialing);
     if (!dialing) { showLike('roots'); return; }
     var at = dial.centers[0] + d, best = 0;
