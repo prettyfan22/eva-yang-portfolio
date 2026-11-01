@@ -273,7 +273,7 @@ nav ul a:hover { color: var(--ink); }
 #interests .story-media { padding-top: var(--likes-offset, 0px); padding-bottom: var(--likes-tail, 0px); }
 .likes div.on dt { color: var(--figure); }
 /* one pinned frame that crossfades to the photo of the interest being read */
-.frame { position: relative; margin: 8px 0 0; width: min(100%, 260px); aspect-ratio: 4 / 5; border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+.frame { position: relative; margin: 8px 0 0; width: min(100%, 340px); aspect-ratio: 4 / 5; max-width: 100%; border-radius: var(--radius); overflow: hidden; background: var(--surface); }
 .frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.04); transition: opacity .6s ease, transform 1.2s ease; }
 .frame img.on { opacity: 1; transform: none; }
 .heart b { display: block; margin-bottom: 8px; font: 400 clamp(30px, 3vw, 38px)/1 var(--display); letter-spacing: .01em; color: var(--ink); }
@@ -757,23 +757,34 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     likeRows.forEach(function (row) { row.classList.toggle('on', row.dataset.like === key); });
   }
   // The active row is the last one whose top has passed the middle of the screen; before that, the roots photo
+  var frame = document.querySelector('.frame');
+  var likesText = frame.parentNode;
+  var likesMedia = document.querySelector('#interests .story-media');
+  // A row is active once its top has crossed the middle of the photo frame; before that, the roots photo
   function syncLikes() {
+    var mid = frame.getBoundingClientRect().top + frame.offsetHeight / 2;
     var key = 'roots';
-    likeRows.forEach(function (row) { if (row.getBoundingClientRect().top < innerHeight * 0.45) key = row.dataset.like; });
+    likeRows.forEach(function (row) { if (row.getBoundingClientRect().top < mid - 4) key = row.dataset.like; });
     showLike(key);
   }
   addEventListener('scroll', syncLikes, { passive: true });
-  // Start the list level with the photo frame, so each row lines up with the picture it brings up
-  var frame = document.querySelector('.frame');
-  var likesMedia = document.querySelector('#interests .story-media');
+  // Size the frame as large as the pinned column allows, start the list at the frame's middle,
+  // and leave room below so the column stays pinned until Wander has had its turn
   function alignLikes() {
-    var shown = getComputedStyle(frame).display !== 'none';
-    var text = frame.parentNode;
-    likesMedia.style.setProperty('--likes-offset', shown ? frame.getBoundingClientRect().top - text.getBoundingClientRect().top + 'px' : '0px');
-    // Keep the column pinned until Wander has reached the middle of the screen and swapped in its photo
+    if (getComputedStyle(frame).display === 'none') {
+      likesMedia.style.setProperty('--likes-offset', '0px');
+      likesMedia.style.setProperty('--likes-tail', '0px');
+      return;
+    }
+    var pin = parseFloat(getComputedStyle(likesText).top);
+    var above = frame.getBoundingClientRect().top - likesText.getBoundingClientRect().top;
+    var h = Math.max(280, Math.min(likesText.clientWidth * 1.25, innerHeight - pin - above - 24));
+    frame.style.height = h + 'px';
+    frame.style.width = h * 0.8 + 'px';
+    likesMedia.style.setProperty('--likes-offset', above + h / 2 + 'px');
     var last = likeRows[likeRows.length - 1];
-    var tail = parseFloat(getComputedStyle(text).top) + text.offsetHeight - innerHeight * 0.45 - last.offsetHeight + 200;
-    likesMedia.style.setProperty('--likes-tail', shown ? Math.max(0, tail) + 'px' : '0px');
+    var tail = likesText.offsetHeight - above - h / 2 - last.offsetHeight + 160;
+    likesMedia.style.setProperty('--likes-tail', Math.max(0, tail) + 'px');
   }
   addEventListener('resize', alignLikes);
   document.fonts.ready.then(alignLikes);
