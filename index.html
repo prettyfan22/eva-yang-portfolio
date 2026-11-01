@@ -7,18 +7,20 @@
 <meta name="description" content="Eva Yang: brand and market strategy. USC Marshall MS Marketing, Analytics.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
 <style>
 /* Layout: one calm page in the Apple manner. A single ground colour runs top to bottom; the Fluo case fades into a dark product stage and back out.
+   Type and palette carry over from the original Canva portfolio: Bebas Neue for headlines and figures, Archivo for text, sage and mustard on warm paper.
    Case studies use sticky storytelling: the story stays pinned on the left while the evidence scrolls past on the right. */
 :root {
   color-scheme: light;
-  --bg: #fafaf7;
-  --surface: #f0f1eb;
-  --ink: #1c1e1a;
-  --muted: #62675d;
-  --accent: #5d6d50;
-  --line: rgba(28, 30, 26, .12);
+  --bg: #f3f2ea;
+  --surface: #e9e8de;
+  --ink: #23251f;
+  --muted: #5f6359;
+  --accent: #5f6b57;
+  --figure: #a87b2a;
+  --line: rgba(35, 37, 31, .14);
   /* Fluo stage: dark in both themes, by design */
   --f-bg: #0f110e;
   --f-surface: #1b1e19;
@@ -27,18 +29,19 @@
   --f-muted: #a4aa9c;
   --f-lime: #b9e35b;
   --f-pink: #ea93e5;
-  --font: "Geist", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --mono: "Geist Mono", ui-monospace, Menlo, monospace;
+  --display: "Bebas Neue", "Oswald", "Arial Narrow", Impact, sans-serif;
+  --font: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
   --radius: 22px;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #121411; --surface: #1b1e19; --ink: #edeee7; --muted: #a3a89b; --accent: #a9b99a;
+    --bg: #1a1c18; --surface: #222520; --ink: #e9e7dc; --muted: #b0b0a4; --accent: #a9b99a; --figure: #d6ab5c;
     --line: rgba(237, 238, 231, .14); color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #121411; --surface: #1b1e19; --ink: #edeee7; --muted: #a3a89b; --accent: #a9b99a;
+  --bg: #1a1c18; --surface: #222520; --ink: #e9e7dc; --muted: #b0b0a4; --accent: #a9b99a; --figure: #d6ab5c;
   --line: rgba(237, 238, 231, .14); color-scheme: dark;
 }
 
@@ -54,12 +57,14 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .wrap { max-width: 1200px; margin: 0 auto; padding-left: max(22px, env(safe-area-inset-left, 0px)); padding-right: max(22px, env(safe-area-inset-right, 0px)); }
 section { padding-block: clamp(80px, 12vw, 160px); }
 
-h1, h2, h3, h4 { margin: 0; font-weight: 600; letter-spacing: -0.025em; text-wrap: balance; }
-h1 { font-size: clamp(52px, 8vw, 104px); line-height: 1; letter-spacing: -0.04em; }
-h2 { font-size: clamp(40px, 5.6vw, 72px); line-height: 1.04; letter-spacing: -0.035em; }
-h3 { font-size: clamp(30px, 3.4vw, 44px); line-height: 1.08; }
+h1, h2, h3, h4 { margin: 0; font-weight: 600; letter-spacing: -0.015em; text-wrap: balance; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: .01em; line-height: .9; }
+h1 { font-size: clamp(96px, 15vw, 200px); line-height: .82; }
+h2 { font-size: clamp(60px, 8.4vw, 116px); }
+h3 { font-size: clamp(44px, 4.8vw, 64px); }
+.num { font-family: var(--display); font-weight: 400; letter-spacing: .01em; }
 p { margin: 0; max-width: 60ch; }
-.eyebrow { font: 500 13px/1.3 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.eyebrow { font: 500 12px/1.4 var(--mono); letter-spacing: .04em; text-transform: uppercase; color: var(--accent); }
 .lede { font-size: clamp(19px, 1.8vw, 23px); line-height: 1.45; color: var(--muted); letter-spacing: -0.01em; }
 .lede strong { color: var(--ink); font-weight: 600; }
 
@@ -67,7 +72,7 @@ p { margin: 0; max-width: 60ch; }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
 nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: color-mix(in srgb, var(--bg) 78%, transparent); backdrop-filter: saturate(180%) blur(18px); -webkit-backdrop-filter: saturate(180%) blur(18px); border-bottom: 1px solid var(--line); }
 nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 52px; }
-nav .brand { font-weight: 600; letter-spacing: -0.02em; text-decoration: none; }
+nav .brand { font: 400 24px/1 var(--display); letter-spacing: .04em; text-decoration: none; }
 nav ul { list-style: none; display: flex; gap: clamp(16px, 3vw, 32px); margin: 0; padding: 0; }
 nav ul a { text-decoration: none; font-size: 14px; color: var(--muted); }
 nav ul a:hover { color: var(--ink); }
@@ -80,7 +85,7 @@ nav ul a:hover { color: var(--ink); }
 .hero figure { margin: 0; }
 .hero figure img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; border-radius: var(--radius); }
 .proof { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: clamp(56px, 7vw, 88px); padding-top: 28px; border-top: 1px solid var(--line); }
-.proof b { display: block; font-size: clamp(26px, 2.6vw, 34px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; }
+.proof b { display: block; font: 400 clamp(36px, 3.6vw, 48px)/1 var(--display); letter-spacing: .01em; color: var(--figure); }
 .proof span { display: block; margin-top: 6px; font-size: 14px; line-height: 1.4; color: var(--muted); }
 
 /* about */
@@ -99,9 +104,10 @@ nav ul a:hover { color: var(--ink); }
 .story-text p { font-size: 17px; }
 .story-media { display: grid; gap: clamp(20px, 3vw, 32px); min-width: 0; }
 .story-media img { width: 100%; border-radius: var(--radius); }
-.pair { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 32px); }
+.pair, .channels .media { display: flex; gap: clamp(14px, 2.4vw, 24px); }
+.pair img, .channels .media img { flex: var(--ar) 1 0; width: 0; min-width: 0; height: auto; }
 .stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 24px; padding-top: 20px; border-top: 1px solid var(--line); }
-.stats b { display: block; font-size: 34px; font-weight: 600; letter-spacing: -0.035em; line-height: 1; font-variant-numeric: tabular-nums; }
+.stats b { display: block; font: 400 44px/1 var(--display); letter-spacing: .01em; color: var(--figure); }
 .stats span { display: block; margin-top: 6px; font-size: 14px; color: var(--muted); line-height: 1.4; }
 .tags { font: 500 12px/1.6 var(--mono); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
 
@@ -111,7 +117,7 @@ nav ul a:hover { color: var(--ink); }
 .fluo-stage .story-text p { color: var(--f-muted); }
 .fluo-stage .story-text p strong { color: var(--f-ink); font-weight: 500; }
 .badge { justify-self: start; display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px; background: var(--f-lime); color: #10120e; font-size: 13px; font-weight: 600; }
-.wordmark { font-size: 28px; font-weight: 700; letter-spacing: -0.05em; }
+.wordmark { font: 700 .62em var(--font); letter-spacing: -0.05em; text-transform: none; }
 .wordmark i { color: var(--f-lime); font-style: normal; }
 .steps { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 2px; border-left: 1px solid rgba(242, 244, 236, .16); }
 .steps a { display: block; padding: 6px 0 6px 16px; margin-left: -1px; border-left: 2px solid transparent; text-decoration: none; font-size: 15px; color: var(--f-muted); transition: color .3s, border-color .3s; }
@@ -120,7 +126,7 @@ nav ul a:hover { color: var(--ink); }
 .link-out:hover { text-decoration: underline; text-underline-offset: 4px; }
 
 .chapter { min-height: 82vh; display: grid; align-content: center; gap: 28px; padding-block: 40px; }
-.chapter h4 { font-size: clamp(26px, 2.8vw, 36px); line-height: 1.1; letter-spacing: -0.03em; max-width: 18ch; }
+.chapter h4 { font: 400 clamp(36px, 3.8vw, 50px)/.95 var(--display); letter-spacing: .01em; max-width: 18ch; }
 .chapter .kicker { font: 500 13px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--f-lime); }
 .chapter .note { font-size: 15px; color: var(--f-muted); max-width: 52ch; }
 .card { background: var(--f-surface); border-radius: var(--radius); padding: clamp(22px, 3vw, 36px); }
@@ -128,7 +134,7 @@ nav ul a:hover { color: var(--ink); }
 /* research */
 .big-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .big-stats .card { display: grid; gap: 10px; align-content: space-between; min-height: 200px; }
-.big-stats b { font-size: clamp(44px, 5vw, 68px); font-weight: 600; letter-spacing: -0.05em; line-height: 1; font-variant-numeric: tabular-nums; }
+.big-stats b { font: 400 clamp(60px, 6.4vw, 88px)/.9 var(--display); letter-spacing: .01em; }
 .big-stats .card:nth-child(1) b { color: var(--f-lime); }
 .big-stats .card:nth-child(2) b { color: var(--f-pink); }
 .big-stats span { font-size: 15px; color: var(--f-muted); line-height: 1.4; }
@@ -198,23 +204,26 @@ nav ul a:hover { color: var(--ink); }
 .tabs button[aria-selected="true"] { background: var(--f-surface); border-color: var(--f-lime); }
 
 /* business model */
-.flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-.flow .card { display: grid; gap: 8px; align-content: start; }
-.flow .card small { font: 500 11.5px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--f-muted); }
-.flow .card b { font-size: clamp(34px, 3.6vw, 48px); font-weight: 600; letter-spacing: -0.045em; line-height: 1; }
-.flow .card p { font-size: 14.5px; color: var(--f-muted); }
-.flow .card.lime { background: var(--f-lime); color: #10120e; }
-.flow .card.lime small, .flow .card.lime p { color: #2d3a17; }
-.split { display: flex; gap: 10px; margin-top: 6px; }
-.split div { flex: 1; border-radius: 14px; padding: 10px 12px; background: rgba(16, 18, 14, .12); }
-.split div b { font-size: 22px; }
-.split div span { display: block; font-size: 12px; }
+.ledger > div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 20px; align-items: start; padding-block: 22px; border-bottom: 1px solid rgba(242, 244, 236, .12); }
+.ledger > div:first-child { padding-top: 0; }
+.ledger > div:last-child { border-bottom: 0; padding-bottom: 0; }
+.ledger b small { font: 500 .32em var(--font); letter-spacing: 0; color: var(--f-muted); }
+.ledger .hi b { color: var(--f-lime); }
+.ledger .lab { display: block; font: 500 11.5px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--f-muted); margin-bottom: 6px; }
+.ledger p { font-size: 15px; color: var(--f-muted); }
+.ledger p strong { color: var(--f-ink); font-weight: 600; }
+.split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+.split div { border-radius: 14px; padding: 12px 14px; background: var(--f-raise); }
+.split div b { display: block; font-size: 34px; }
+.split div:first-child b { color: var(--f-lime); }
+.split div span { display: block; margin-top: 4px; font-size: 13px; color: var(--f-muted); line-height: 1.35; }
 
 /* launch */
 .ask { display: grid; gap: 0; }
 .ask div { display: grid; grid-template-columns: 110px 1fr; gap: 16px; align-items: baseline; padding-block: 16px; border-bottom: 1px solid rgba(242, 244, 236, .12); }
 .ask div:last-child { border-bottom: 0; }
-.ask b { font-size: 44px; font-weight: 600; letter-spacing: -0.05em; line-height: 1; color: var(--f-lime); }
+.ask b, .ledger b { font: 400 56px/.9 var(--display); letter-spacing: .01em; color: var(--f-ink); }
+.ask b { color: var(--f-lime); }
 .ask strong { display: block; font-weight: 600; font-size: 17px; }
 .ask span { font-size: 14px; color: var(--f-muted); }
 .road { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
@@ -234,9 +243,8 @@ nav ul a:hover { color: var(--ink); }
 .js .funnel.in div:nth-child(4) .fill { transition-delay: .36s; }
 
 /* content channels */
-.channels { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
-.channels .media { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 14px; align-items: end; }
-.channels .media img { width: 100%; border-radius: 16px; }
+.channels { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
+.channels .media img { border-radius: 16px; }
 .channels .copy { display: grid; gap: 22px; }
 
 /* research */
@@ -297,7 +305,9 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   nav ul li:not(:last-child) { display: none; }
   .demo { grid-template-columns: minmax(0, 1fr); justify-items: center; }
   .tabs { width: 100%; }
-  .big-stats, .flow, .road { grid-template-columns: minmax(0, 1fr); }
+  .big-stats, .road { grid-template-columns: minmax(0, 1fr); }
+  .ledger > div { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .ledger b, .ask b { font-size: 42px; }
   .big-stats .card { min-height: 0; }
   .caps { grid-template-columns: minmax(0, 1fr); }
   .research .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -305,7 +315,6 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   .map .dot { font-size: 10px; }
   .map .al { font-size: 9px; }
   .ask div { grid-template-columns: 76px 1fr; }
-  .ask b { font-size: 34px; }
   .funnel div { grid-template-columns: 90px 1fr 46px; gap: 10px; }
 }
 </style>
@@ -478,12 +487,12 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
       <div class="chapter" id="f-model">
         <p class="kicker">04 · Business model</p>
         <h4>Free for students, paid by merchants.</h4>
-        <div class="flow">
-          <div class="card"><small>A student's month</small><b>$230</b><p>Matcha, boba, lunch, fitness and a Target run, paid with FluoWallet at partner merchants.</p></div>
-          <div class="card lime"><small>Merchants pay 10%</small><b>$23</b><p>Cheaper than ads, and they only pay for real student sales.</p>
-            <div class="split"><div><b>$6.90</b><span>back to the student as FluoCoins</span></div><div><b>$16.10</b><span>kept by Fluo</span></div></div>
+        <div class="card ledger">
+          <div><b>$230</b><p><span class="lab">A student's month</span>Matcha, boba, lunch, fitness and a Target run, paid with FluoWallet at partner merchants.</p></div>
+          <div class="hi"><b>$23</b><div><p><span class="lab">Merchants pay 10%</span>Cheaper than ads, and they only pay for real student sales.</p>
+            <div class="split"><div><b>$6.90</b><span>back to the student as FluoCoins</span></div><div><b>$16.10</b><span>kept by Fluo</span></div></div></div>
           </div>
-          <div class="card"><small>Later</small><b>$4.99<span style="font-size:.45em;letter-spacing:0">/mo</span></b><p>Fluo+: bigger squads, custom stash rules, detailed analytics, more reward drops.</p></div>
+          <div><b>$4.99<small>/mo</small></b><p><span class="lab">Later · Fluo+</span>Bigger squads, custom stash rules, detailed analytics, more reward drops.</p></div>
         </div>
       </div>
 
@@ -534,13 +543,13 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     <div class="story-media">
       <img class="reveal" src="img/nutea-bags.jpg" alt="Nü Tea identity on cups and tote bags in white and deep green" loading="lazy" width="1098" height="700">
       <div class="pair reveal">
-        <img src="img/nutea-mango.jpg" alt="Mango Cheese seasonal drink poster" loading="lazy" width="692" height="922">
-        <img src="img/nutea-strawberry.jpg" alt="Strawberry Milk series poster" loading="lazy" width="648" height="810">
+        <img style="--ar:0.7505" src="img/nutea-mango.jpg" alt="Mango Cheese seasonal drink poster" loading="lazy" width="692" height="922">
+        <img style="--ar:0.8000" src="img/nutea-strawberry.jpg" alt="Strawberry Milk series poster" loading="lazy" width="648" height="810">
       </div>
       <img class="reveal" src="img/nutea-menu.jpg" alt="Nü Tea menu: few categories, with icons for customizations" loading="lazy" width="1100" height="707">
       <div class="pair reveal">
-        <img src="img/nutea-loyalty.jpg" alt="Nü Tea loyalty stamp card" loading="lazy" width="916" height="523">
-        <img src="img/nutea-event.jpg" alt="Nü Tea event and catering card" loading="lazy" width="914" height="519">
+        <img style="--ar:1.7514" src="img/nutea-loyalty.jpg" alt="Nü Tea loyalty stamp card" loading="lazy" width="916" height="523">
+        <img style="--ar:1.7611" src="img/nutea-event.jpg" alt="Nü Tea event and catering card" loading="lazy" width="914" height="519">
       </div>
     </div>
   </div>
@@ -562,9 +571,9 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
       </div>
     </div>
     <div class="media reveal">
-      <img src="img/douyin.jpg" alt="Douyin video from Eva's channel" loading="lazy" width="506" height="1100">
-      <img src="img/rb-montreal.jpg" alt="Xiaohongshu post: three-day Montreal food guide" loading="lazy" width="466" height="742">
-      <img src="img/rb-greek.jpg" alt="Xiaohongshu post: restaurant review" loading="lazy" width="444" height="758">
+      <img style="--ar:0.4600" src="img/douyin.jpg" alt="Douyin video from Eva's channel" loading="lazy" width="506" height="1100">
+      <img style="--ar:0.6280" src="img/rb-montreal.jpg" alt="Xiaohongshu post: three-day Montreal food guide" loading="lazy" width="466" height="742">
+      <img style="--ar:0.5858" src="img/rb-greek.jpg" alt="Xiaohongshu post: restaurant review" loading="lazy" width="444" height="758">
     </div>
   </div>
 </section>
