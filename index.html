@@ -262,15 +262,13 @@ nav ul a:hover { color: var(--ink); }
 .skills h4 { font-size: 16px; color: var(--ink); margin-bottom: 8px; }
 .skills p { font-size: 15px; color: var(--muted); }
 
-/* interests */
-.likes-head { display: grid; gap: 20px; max-width: 760px; }
-.likes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 clamp(24px, 4vw, 56px); margin-top: clamp(40px, 5vw, 64px); }
-.likes div { display: grid; gap: 10px; align-content: start; padding-block: 24px 32px; border-top: 1px solid var(--line); }
-.likes .wide { grid-column: span 2; }
-.likes h4 { font: 400 32px/1 var(--display); letter-spacing: .01em; }
-.likes p { font-size: 16px; color: var(--muted); }
-.heart { margin-top: clamp(40px, 5vw, 64px); text-align: center; font: 400 clamp(36px, 4.4vw, 56px)/1 var(--display); letter-spacing: .01em; text-wrap: balance; }
-.heart span { color: var(--figure); }
+/* interests: deliberately compact, one screen at most */
+.likes { margin: 0; display: grid; border-top: 1px solid var(--line); }
+.likes div { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 16px; padding-block: 14px; border-bottom: 1px solid var(--line); }
+.likes dt { font: 400 22px/1.1 var(--display); letter-spacing: .02em; padding-top: 1px; }
+.likes dd { margin: 0; font-size: 15px; color: var(--muted); }
+.heart { font-size: 15px; color: var(--muted); }
+.heart b { display: block; margin-bottom: 4px; font-size: 22px; font-weight: 600; color: var(--ink); }
 
 /* contact */
 .contact { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
@@ -307,7 +305,6 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   .chapter { min-height: 0; padding-block: 56px 0; }
   .fluo-stage { padding-block: 280px; }
   .skills { grid-template-columns: minmax(0, 1fr); }
-  .likes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .xp h2 { position: static; }
 }
 @media (max-width: 680px) {
@@ -319,8 +316,6 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   .ledger b, .ask b { font-size: 42px; }
   .big-stats .card { min-height: 0; }
   .caps { grid-template-columns: minmax(0, 1fr); }
-  .likes { grid-template-columns: minmax(0, 1fr); }
-  .likes .wide { grid-column: auto; }
   .research .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .xp li { grid-template-columns: minmax(0, 1fr); }
   .map .dot { font-size: 10px; }
@@ -627,19 +622,21 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 </section>
 
 <section id="interests">
-  <div class="wrap">
-    <div class="likes-head reveal">
-      <h2>Off the clock</h2>
-      <p class="lede">Most of what I love comes down to exploring: new scents, new flavours, new places.</p>
+  <div class="wrap research">
+    <div class="copy reveal">
+      <h3>Off the clock</h3>
+      <p>Most of what I love comes down to exploring: new scents, new flavours, new places.</p>
     </div>
-    <div class="likes reveal">
-      <div><h4>Scent</h4><p>Santal, pink pepper rose and osmanthus perfumes. At home, bergamot and rose essential oils.</p></div>
-      <div><h4>Sips</h4><p>Iced pour-over made with Geisha beans, and a glass of French or Napa Chardonnay.</p></div>
-      <div><h4>The table</h4><p>Good olive oil, olives and focaccia. I eat my way through Chinese, Korean, Japanese and Italian food.</p></div>
-      <div><h4>Badminton</h4><p>I picked badminton over the gym. I get in at least one practice a week in LA, so I can go home and beat some uncs and friends in Vancouver and Calgary.</p></div>
-      <div class="wide"><h4>Spaces</h4><p>I travel for architecture and the feel of a place: the concrete jungle of New York, cyberpunk Chongqing, K-drama Seoul, and themed cafés wherever I go.</p></div>
+    <div class="copy reveal">
+      <dl class="likes">
+        <div><dt>Scent</dt><dd>Santal, pink pepper rose and osmanthus perfumes. Bergamot and rose essential oils at home.</dd></div>
+        <div><dt>Sips</dt><dd>Iced pour-over with Geisha beans, and French or Napa Chardonnay.</dd></div>
+        <div><dt>Savoury</dt><dd>Olive oil, olives and focaccia, and Chinese, Korean, Japanese and Italian food.</dd></div>
+        <div><dt>Sport</dt><dd>Badminton over the gym. I practise at least once a week in LA, so I can go home and beat some uncs and friends in Vancouver and Calgary.</dd></div>
+        <div><dt>Spaces</dt><dd>Architecture and the feel of a place: concrete-jungle New York, cyberpunk Chongqing, K-drama Seoul, and themed cafés wherever I go.</dd></div>
+      </dl>
+      <p class="heart"><b>热干面 · reganmian</b>But at heart, I'm Wuhanese, and this is my bowl: hot dry noodles coated in an equally dry sesame paste, born on the Hankou docks in the 1930s as a quick, filling breakfast for dockworkers.</p>
     </div>
-    <p class="heart reveal">But at heart, I'm Wuhanese, with a deep devotion to my <span>reganmian</span>.</p>
   </div>
 </section>
 
