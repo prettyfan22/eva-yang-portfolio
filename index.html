@@ -118,6 +118,12 @@ nav a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 4px
 .plates .wide img { aspect-ratio: 16 / 10; }
 figcaption { font: 500 11px/1.4 var(--mono); margin-top: 6px; opacity: .75; }
 
+.plates .slide img, .plates figure:not([class]) img { aspect-ratio: 16 / 10; }
+.plates .slide img { aspect-ratio: 16 / 9; }
+.badge { justify-self: start; background: var(--ink); color: var(--mustard); font: 600 12px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; padding: 8px 12px; }
+.link-out { justify-self: start; font: 600 13px var(--body); letter-spacing: .1em; text-transform: uppercase; text-decoration: none; border-bottom: 2px solid currentColor; padding-bottom: 3px; }
+.link-out:hover { opacity: .75; }
+.cases.one { grid-template-columns: 1fr; max-width: 760px; }
 .douyin { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
 .douyin figure { margin: 0; justify-self: center; max-width: 340px; width: 100%; }
 .douyin figure img { border-radius: 26px; border: 6px solid var(--ink); }
@@ -237,8 +243,34 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   <div class="wrap">
     <div class="proj-head">
       <h2>Selected<br>Work</h2>
-      <p>Three brands I built or grew, from a neighbourhood tea shop to my own channels with millions of views.</p>
+      <p>A student money app pitched at USC Marshall, a neighbourhood tea shop, and my own channels with millions of views.</p>
     </div>
+
+    <article class="project" id="fluo">
+      <div class="meta">
+        <div class="kicker"><span class="label">Go-to-market strategy</span><span class="mono">USC Marshall MSMKT Case Competition · Fall 2026</span></div>
+        <span class="badge">Semi-finalist</span>
+        <h3>Launching Fluo at USC</h3>
+        <p>Our team built the launch plan for Fluo, a money app for socially active college students. The pitch: budgeting is restrictive, Fluo is permissive. We qualified for the semi-finals.</p>
+        <p>We started with research to learn why students overspend, then shaped the positioning, product bundle, business model and a USC-first launch. I built a working website demo with an interactive Money Buddy, and wrote the business model, roadmap and launch recommendation slides.</p>
+        <div class="results">
+          <div><b>14</b><span>Customer interviews</span></div>
+          <div><b>99</b><span>Survey responses</span></div>
+        </div>
+        <p class="tags">Customer research · Positioning · Business model · Web prototype</p>
+        <a class="link-out" href="https://fluo-usc-website.vercel.app" target="_blank" rel="noopener">Try the website demo ↗</a>
+      </div>
+      <div class="plates two">
+        <figure class="wide"><img src="img/fluo-demo-chat.jpg" alt="Fluo website demo: the Money Buddy answers 'Where's the best matcha near me?' with three nearby spots" loading="lazy"><figcaption>Website demo: ask the Money Buddy, get a pick and a partner discount</figcaption></figure>
+        <figure><img src="img/fluo-demo-archetype.jpg" alt="Fluo website demo: money archetype screen showing The Curator" loading="lazy"><figcaption>Demo: money archetype</figcaption></figure>
+        <figure><img src="img/fluo-demo-circles.jpg" alt="Fluo website demo: a Circle suggesting plans that fit four friends' budgets" loading="lazy"><figcaption>Demo: Fluo Circles</figcaption></figure>
+        <figure class="wide"><img src="img/fluo-deck-cover.jpg" alt="Fluo deck cover slide: Making Money Fun" loading="lazy"><figcaption>Final deck</figcaption></figure>
+        <figure class="slide"><img src="img/fluo-deck-launch.jpg" alt="Slide: launch Fluo at USC this December with 100 founding members and 10 partner merchants" loading="lazy"><figcaption>Launch recommendation</figcaption></figure>
+        <figure class="slide"><img src="img/fluo-deck-model.jpg" alt="Slide: business model, free for students and paid by merchants" loading="lazy"><figcaption>Business model</figcaption></figure>
+        <figure class="slide"><img src="img/fluo-deck-roadmap.jpg" alt="Slide: three-phase roadmap from USC to LA campuses to national" loading="lazy"><figcaption>Roadmap</figcaption></figure>
+        <figure class="slide"><img src="img/fluo-deck-waitlist.jpg" alt="Slide: waitlist funnel from 1,000 sign-ups to 120 repeat users" loading="lazy"><figcaption>Waitlist funnel</figcaption></figure>
+      </div>
+    </article>
 
     <article class="project">
       <div class="meta">
@@ -306,17 +338,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
       <h2>Research</h2>
       <p>Behind the creative work: interviews, surveys and analysis that tell me what to make.</p>
     </div>
-    <div class="cases">
-      <article class="case">
-        <span class="mono">USC Marshall MSMKT Case Competition · Fall 2026</span>
-        <h3>Fluo</h3>
-        <p>Go-to-market work for a student money app launching at USC.</p>
-        <ul>
-          <li>Ran customer interviews and a 34-person survey to find what students want from a budgeting tool</li>
-          <li>Mapped competitors and substitutes, then built user archetypes and a brand voice</li>
-          <li>Wrote and shipped the landing page copy for the USC launch</li>
-        </ul>
-      </article>
+    <div class="cases one">
       <article class="case">
         <span class="mono">UBC Sauder School of Business · 2025–now</span>
         <h3>Small business study</h3>
@@ -336,7 +358,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     <div class="xp">
       <h2>Exper&shy;ience</h2>
       <ol>
-        <li><span class="when mono">2026 – 2027</span><div><h4>MS Marketing, Analytics</h4><div class="org">USC Marshall School of Business</div><p>VP, Student Advising Committee. Marketing Case Competition team.</p></div></li>
+        <li><span class="when mono">2026 – 2027</span><div><h4>MS Marketing, Analytics</h4><div class="org">USC Marshall School of Business</div><p>VP, Student Advising Committee. Marketing Case Competition semi-finalist (Fluo).</p></div></li>
         <li><span class="when mono">2025 – now</span><div><h4>Business Research Assistant</h4><div class="org">UBC Sauder School of Business</div></div></li>
         <li><span class="when mono">2025</span><div><h4>Marketing &amp; Branding Lead</h4><div class="org">Nü Tea (Top Gain Kao Ltd.), Vancouver</div></div></li>
         <li><span class="when mono">2024 – 2025</span><div><h4>Regulatory Affairs Intern</h4><div class="org">Daiya Foods, Burnaby</div><p>Advised launches across Canada, the U.S., the EU and Southeast Asia. Automated a 50,000+ data point allergen and certification database, cutting SKU review time 3x.</p></div></li>
