@@ -7,10 +7,11 @@
 <meta name="description" content="Eva Yang: brand and market strategy. USC Marshall MS Marketing, Analytics.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,300..700&display=swap">
 <style>
 /* Layout: one calm page in the Apple manner. A single ground colour runs top to bottom; the Fluo case fades into a dark product stage and back out.
    Type and palette carry over from the original Canva portfolio: Bebas Neue for headlines and figures, Archivo for text, sage and mustard on warm paper.
+   Inside the Fluo stage, everything but the headlines switches to DM Sans, the face of the Fluo brand and pitch.
    Case studies use sticky storytelling: the story stays pinned on the left while the evidence scrolls past on the right. */
 :root {
   color-scheme: light;
@@ -31,7 +32,7 @@
   --f-pink: #ea93e5;
   --display: "Bebas Neue", "Oswald", "Arial Narrow", Impact, sans-serif;
   --font: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --fluo: "DM Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --radius: 22px;
 }
 @media (prefers-color-scheme: dark) {
@@ -64,7 +65,6 @@ h2 { font-size: clamp(60px, 8.4vw, 116px); }
 h3 { font-size: clamp(44px, 4.8vw, 64px); }
 .num { font-family: var(--display); font-weight: 400; letter-spacing: .01em; }
 p { margin: 0; max-width: 60ch; }
-.eyebrow { font: 500 12px/1.4 var(--mono); letter-spacing: .04em; text-transform: uppercase; color: var(--accent); }
 .lede { font-size: clamp(19px, 1.8vw, 23px); line-height: 1.45; color: var(--muted); letter-spacing: -0.01em; }
 .lede strong { color: var(--ink); font-weight: 600; }
 
@@ -80,7 +80,6 @@ nav ul a:hover { color: var(--ink); }
 /* hero */
 .hero { padding-block: clamp(56px, 8vw, 104px) clamp(64px, 8vw, 120px); }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
-.hero .eyebrow { margin-bottom: 20px; }
 .hero h1 + .lede { margin-top: 28px; }
 .hero figure { margin: 0; }
 .hero figure img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; border-radius: var(--radius); }
@@ -104,20 +103,21 @@ nav ul a:hover { color: var(--ink); }
 .story-text p { font-size: 17px; }
 .story-media { display: grid; gap: clamp(20px, 3vw, 32px); min-width: 0; }
 .story-media img { width: 100%; border-radius: var(--radius); }
-.pair, .channels .media { display: flex; gap: clamp(14px, 2.4vw, 24px); }
-.pair img, .channels .media img { flex: var(--ar) 1 0; width: 0; min-width: 0; height: auto; }
+.pair { display: flex; gap: clamp(14px, 2.4vw, 24px); }
+.pair img { flex: var(--ar) 1 0; width: 0; min-width: 0; height: auto; }
 .stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 24px; padding-top: 20px; border-top: 1px solid var(--line); }
 .stats b { display: block; font: 400 44px/1 var(--display); letter-spacing: .01em; color: var(--figure); }
 .stats span { display: block; margin-top: 6px; font-size: 14px; color: var(--muted); line-height: 1.4; }
-.tags { font: 500 12px/1.6 var(--mono); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+.link-more { justify-self: start; font-weight: 600; color: var(--accent); text-decoration: none; }
+.link-more:hover { text-decoration: underline; text-underline-offset: 4px; }
 
 /* Fluo stage */
 .fluo-stage { background: linear-gradient(to bottom, var(--bg) 0, var(--f-bg) 320px, var(--f-bg) calc(100% - 320px), var(--bg) 100%); color: var(--f-ink); padding-block: 360px; }
-.fluo-stage .eyebrow { color: var(--f-lime); }
+.fluo-stage { font-family: var(--fluo); }
 .fluo-stage .story-text p { color: var(--f-muted); }
 .fluo-stage .story-text p strong { color: var(--f-ink); font-weight: 500; }
 .badge { justify-self: start; display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px; background: var(--f-lime); color: #10120e; font-size: 13px; font-weight: 600; }
-.wordmark { font: 700 .62em var(--font); letter-spacing: -0.05em; text-transform: none; }
+.wordmark { font: 700 .62em var(--fluo); letter-spacing: -0.06em; text-transform: none; }
 .wordmark i { color: var(--f-lime); font-style: normal; }
 .steps { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 2px; border-left: 1px solid rgba(242, 244, 236, .16); }
 .steps a { display: block; padding: 6px 0 6px 16px; margin-left: -1px; border-left: 2px solid transparent; text-decoration: none; font-size: 15px; color: var(--f-muted); transition: color .3s, border-color .3s; }
@@ -127,14 +127,14 @@ nav ul a:hover { color: var(--ink); }
 
 .chapter { min-height: 82vh; display: grid; align-content: center; gap: 28px; padding-block: 40px; }
 .chapter h4 { font: 400 clamp(36px, 3.8vw, 50px)/.95 var(--display); letter-spacing: .01em; max-width: 18ch; }
-.chapter .kicker { font: 500 13px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--f-lime); }
+.chapter h5 { margin: 0 0 16px; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
 .chapter .note { font-size: 15px; color: var(--f-muted); max-width: 52ch; }
 .card { background: var(--f-surface); border-radius: var(--radius); padding: clamp(22px, 3vw, 36px); }
 
 /* research */
 .big-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .big-stats .card { display: grid; gap: 10px; align-content: space-between; min-height: 200px; }
-.big-stats b { font: 400 clamp(60px, 6.4vw, 88px)/.9 var(--display); letter-spacing: .01em; }
+.big-stats b { font-size: clamp(48px, 5.2vw, 72px); font-weight: 600; line-height: 1; letter-spacing: -0.055em; }
 .big-stats .card:nth-child(1) b { color: var(--f-lime); }
 .big-stats .card:nth-child(2) b { color: var(--f-pink); }
 .big-stats span { font-size: 15px; color: var(--f-muted); line-height: 1.4; }
@@ -148,12 +148,12 @@ nav ul a:hover { color: var(--ink); }
 .map .ax { position: absolute; background: rgba(242, 244, 236, .18); }
 .map .ax.h { left: 6%; right: 6%; top: 50%; height: 1px; }
 .map .ax.v { top: 8%; bottom: 8%; left: 50%; width: 1px; }
-.map .al { position: absolute; font: 500 10.5px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--f-muted); }
-.map .dot { position: absolute; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 7px; font: 500 12px var(--mono); color: var(--f-muted); white-space: nowrap; }
+.map .al { position: absolute; font-size: 12px; font-weight: 500; color: var(--f-muted); }
+.map .dot { position: absolute; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--f-muted); white-space: nowrap; }
 .map .dot::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: #6c7166; flex: none; }
 .map .dot.me { color: #10120e; }
 .map .dot.me::before { display: none; }
-.map .dot.me span { display: grid; place-items: center; width: clamp(54px, 7vw, 76px); aspect-ratio: 1; border-radius: 50%; background: var(--f-lime); font: 700 clamp(15px, 1.8vw, 20px) var(--font); letter-spacing: -0.05em; box-shadow: 0 0 0 10px rgba(185, 227, 91, .12); }
+.map .dot.me span { display: grid; place-items: center; width: clamp(54px, 7vw, 76px); aspect-ratio: 1; border-radius: 50%; background: var(--f-lime); font: 700 clamp(15px, 1.8vw, 20px) var(--fluo); letter-spacing: -0.05em; box-shadow: 0 0 0 10px rgba(185, 227, 91, .12); }
 
 /* phone demo */
 .demo { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(24px, 4vw, 48px); align-items: center; }
@@ -173,20 +173,20 @@ nav ul a:hover { color: var(--ink); }
 @keyframes blink { 0%, 100% { opacity: .3; } 50% { opacity: 1; } }
 .spot { background: #fff; border: 1px solid #e3e5dc; border-radius: 12px; padding: 9px 11px; }
 .spot.top { border: 1.5px solid #4f7a1f; }
-.spot .tag { font: 600 9.5px var(--mono); letter-spacing: .06em; color: #4f7a1f; text-transform: uppercase; }
+.spot .tag { font-size: 10.5px; font-weight: 600; color: #4f7a1f; }
 .spot b { display: block; font-size: 13px; margin-top: 2px; }
 .spot small { color: #737868; font-size: 11px; }
 .order { justify-self: center; margin-top: 4px; background: var(--f-lime); border-radius: 999px; padding: 9px 18px; font-weight: 600; font-size: 12.5px; }
 .js .screen[data-panel="ask"] > * { opacity: 0; transform: translateY(8px); transition: opacity .45s ease, transform .45s ease; }
 .js .screen[data-panel="ask"] > .show { opacity: 1; transform: none; }
 .fri { text-align: center; padding-top: 26px; display: grid; gap: 4px; }
-.fri .t { font: 600 10px var(--mono); letter-spacing: .1em; color: #4f7a1f; }
+.fri .t { font-size: 11px; font-weight: 600; color: #4f7a1f; }
 .fri .n { font-size: 76px; font-weight: 500; letter-spacing: -0.06em; line-height: 1; margin-top: 8px; font-variant-numeric: tabular-nums; }
 .fri .y { font-size: 17px; letter-spacing: -0.02em; }
 .aside { margin-top: 18px; text-align: left; display: grid; gap: 7px; }
 .aside div { display: flex; justify-content: space-between; background: #fff; border: 1px solid #e3e5dc; border-radius: 10px; padding: 8px 11px; font-size: 12px; }
 .aside div span:last-child { color: #4f7a1f; font-weight: 600; }
-.arch .t { font: 600 10px var(--mono); letter-spacing: .1em; color: #737868; }
+.arch .t { font-size: 11px; font-weight: 600; color: #737868; }
 .arch h5 { margin: 4px 0 6px; font-size: 24px; letter-spacing: -0.04em; font-weight: 600; }
 .arch .bar { display: flex; height: 7px; border-radius: 9px; overflow: hidden; gap: 2px; margin: 10px 0 8px; }
 .arch .bar i { display: block; height: 100%; }
@@ -209,12 +209,12 @@ nav ul a:hover { color: var(--ink); }
 .ledger > div:last-child { border-bottom: 0; padding-bottom: 0; }
 .ledger b small { font: 500 .32em var(--font); letter-spacing: 0; color: var(--f-muted); }
 .ledger .hi b { color: var(--f-lime); }
-.ledger .lab { display: block; font: 500 11.5px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--f-muted); margin-bottom: 6px; }
+.ledger .lab { display: block; font-weight: 600; color: var(--f-ink); margin-bottom: 2px; }
 .ledger p { font-size: 15px; color: var(--f-muted); }
 .ledger p strong { color: var(--f-ink); font-weight: 600; }
 .split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
 .split div { border-radius: 14px; padding: 12px 14px; background: var(--f-raise); }
-.split div b { display: block; font-size: 34px; }
+.split div b { display: block; font-size: 30px; }
 .split div:first-child b { color: var(--f-lime); }
 .split div span { display: block; margin-top: 4px; font-size: 13px; color: var(--f-muted); line-height: 1.35; }
 
@@ -222,13 +222,13 @@ nav ul a:hover { color: var(--ink); }
 .ask { display: grid; gap: 0; }
 .ask div { display: grid; grid-template-columns: 110px 1fr; gap: 16px; align-items: baseline; padding-block: 16px; border-bottom: 1px solid rgba(242, 244, 236, .12); }
 .ask div:last-child { border-bottom: 0; }
-.ask b, .ledger b { font: 400 56px/.9 var(--display); letter-spacing: .01em; color: var(--f-ink); }
+.ask b, .ledger b { font-size: 46px; font-weight: 600; line-height: 1; letter-spacing: -0.055em; color: var(--f-ink); }
 .ask b { color: var(--f-lime); }
 .ask strong { display: block; font-weight: 600; font-size: 17px; }
 .ask span { font-size: 14px; color: var(--f-muted); }
 .road { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .road .card { padding: 20px; display: grid; gap: 6px; }
-.road small { font: 500 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--f-lime); }
+.road small { font-size: 13px; font-weight: 600; color: var(--f-lime); }
 .road b { font-size: 17px; font-weight: 600; letter-spacing: -0.02em; }
 .road span { font-size: 13.5px; color: var(--f-muted); line-height: 1.4; }
 .funnel { display: grid; gap: 10px; }
@@ -242,11 +242,6 @@ nav ul a:hover { color: var(--ink); }
 .js .funnel.in div:nth-child(3) .fill { transition-delay: .24s; }
 .js .funnel.in div:nth-child(4) .fill { transition-delay: .36s; }
 
-/* content channels */
-.channels { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
-.channels .media img { border-radius: 16px; }
-.channels .copy { display: grid; gap: 22px; }
-
 /* research */
 .research { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
 .research .copy { display: grid; gap: 22px; }
@@ -257,19 +252,19 @@ nav ul a:hover { color: var(--ink); }
 .xp ol { list-style: none; margin: 0; padding: 0; }
 .xp li { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 6px 24px; padding-block: 22px; border-top: 1px solid var(--line); }
 .xp li:last-child { border-bottom: 1px solid var(--line); }
-.xp .when { font: 500 13px var(--mono); color: var(--muted); padding-top: 3px; font-variant-numeric: tabular-nums; }
+.xp .when { font-size: 14px; color: var(--muted); padding-top: 3px; font-variant-numeric: tabular-nums; }
 .xp h4 { font-size: 18px; letter-spacing: -0.015em; }
 .xp .org { color: var(--muted); font-size: 15px; }
 .xp li p { margin-top: 6px; font-size: 15px; color: var(--muted); }
 .skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: clamp(48px, 6vw, 80px); }
-.skills h4 { font: 500 13px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+.skills h4 { font-size: 16px; color: var(--ink); margin-bottom: 8px; }
 .skills p { font-size: 15px; color: var(--muted); }
 
 /* contact */
 .contact { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
 .contact .lines { display: grid; gap: 14px; margin-top: 36px; }
 .contact .line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-size: clamp(18px, 2vw, 22px); }
-.contact .line .k { width: 92px; font: 500 13px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.contact .line .k { width: 92px; font-size: 15px; color: var(--muted); }
 .contact .val { overflow-wrap: anywhere; }
 .copy-btn { font-size: 13px; font-weight: 500; background: var(--surface); border: 1px solid var(--line); border-radius: 99px; padding: 6px 14px; cursor: pointer; }
 .copy-btn:hover { border-color: var(--muted); }
@@ -292,7 +287,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 }
 
 @media (max-width: 920px) {
-  .hero-grid, .about, .story, .channels, .research, .xp, .contact { grid-template-columns: minmax(0, 1fr); }
+  .hero-grid, .about, .story, .research, .xp, .contact { grid-template-columns: minmax(0, 1fr); }
   .hero figure { max-width: 440px; }
   .proof { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .story-text { position: static; }
@@ -336,7 +331,6 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <p class="eyebrow">Brand &amp; market strategy</p>
         <h1>Eva Yang</h1>
         <p class="lede">I turn customer research into <strong>positioning, launch plans and campaigns that move numbers.</strong> MS Marketing (Analytics) at USC Marshall.</p>
       </div>
@@ -373,7 +367,6 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 
 <section id="work" style="padding-bottom: 0">
   <div class="wrap intro reveal">
-    <p class="eyebrow">Selected work</p>
     <h2>From the first interview<br>to the launch plan.</h2>
     <p class="lede">A fintech launch at USC, a small-business rebrand in Vancouver, and audience strategy tested on my own channels.</p>
   </div>
@@ -384,9 +377,8 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   <div class="wrap story">
     <div class="story-text">
       <span class="badge">Semi-finalist</span>
-      <p class="eyebrow">USC Marshall MSMKT Case Competition · Fall 2026</p>
       <h3>Launching <span class="wordmark">fluo<i>.</i></span> at USC</h3>
-      <p>Fluo is a money app for socially active college students. Our team of five had <strong>two weeks</strong> to build its launch strategy: research, positioning, product, business model and go-to-market.</p>
+      <p>Fluo is a money app for socially active college students. For the USC Marshall MS Marketing Case Competition, our team of five had <strong>two weeks</strong> to build its launch strategy: research, positioning, product, business model and go-to-market.</p>
       <p>We lost a lot of sleep, and complained about it in the group chat every night. We kept going anyway, and the plan made the semi-finals.</p>
       <p><strong>My part:</strong> the business model, the roadmap and the launch recommendation, plus a working website demo of the product.</p>
       <a class="link-out" href="https://fluo-usc-website.vercel.app" target="_blank" rel="noopener">Open the full website demo ↗</a>
@@ -401,7 +393,6 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 
     <div class="story-media">
       <div class="chapter" id="f-research">
-        <p class="kicker">01 · Research</p>
         <h4>Students want help paying for the fun.</h4>
         <div class="sample"><span><b>14</b> in-depth interviews</span><span><b>99</b> survey responses</span></div>
         <div class="big-stats">
@@ -413,7 +404,6 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
       </div>
 
       <div class="chapter" id="f-position">
-        <p class="kicker">02 · Positioning</p>
         <h4>Budgeting is restrictive. Fluo is permissive.</h4>
         <div class="map" role="img" aria-label="Perceptual map. Horizontal axis from logs the past to plans the future, vertical axis from discipline first to lifestyle first. Venmo, Bilt and Cleo sit in lifestyle first but log the past. Bank apps and Rocket Money log the past with discipline first. PocketGuard and YNAB plan the future with discipline first. Fluo stands alone in plans the future and lifestyle first.">
           <span class="ax h"></span><span class="ax v"></span>
@@ -434,7 +424,6 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
       </div>
 
       <div class="chapter" id="f-product">
-        <p class="kicker">03 · Product demo</p>
         <h4>A Money Buddy that says yes, within reason.</h4>
         <div class="demo">
           <div class="phone" aria-live="polite">
@@ -481,11 +470,9 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
             <button role="tab" id="t-archetype" aria-controls="p-archetype" aria-selected="false" data-panel="archetype" type="button"><b>Money archetype</b><span>Spending habits as a personality, not a lecture</span></button>
           </div>
         </div>
-        <p class="note">Rebuilt here from the website demo I made for the pitch. All figures are example data.</p>
       </div>
 
       <div class="chapter" id="f-model">
-        <p class="kicker">04 · Business model</p>
         <h4>Free for students, paid by merchants.</h4>
         <div class="card ledger">
           <div><b>$230</b><p><span class="lab">A student's month</span>Matcha, boba, lunch, fitness and a Target run, paid with FluoWallet at partner merchants.</p></div>
@@ -497,7 +484,6 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
       </div>
 
       <div class="chapter" id="f-launch">
-        <p class="kicker">05 · Launch plan</p>
         <h4>Launch at USC this December. Small commitments first.</h4>
         <div class="card ask">
           <div><b>100</b><p><strong>Founding members</strong><span>Club leaders, Greek life, international student leaders, micro-creators</span></p></div>
@@ -510,7 +496,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
           <div class="card"><small>Later · National</small><b>Grows with you</b><span>Student to first-job professional, with partners at each stage</span></div>
         </div>
         <div class="card">
-          <p class="kicker" style="margin-bottom:16px">Waitlist to word of mouth</p>
+          <h5>Waitlist to word of mouth</h5>
           <div class="funnel">
             <div><span>Sign-ups</span><span class="track"><span class="fill" style="--w:100%"></span></span><b>1,000</b></div>
             <div><span>Connect</span><span class="track"><span class="fill" style="--w:40%"></span></span><b>400</b></div>
@@ -528,9 +514,8 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 <section id="nutea">
   <div class="wrap story">
     <div class="story-text">
-      <p class="eyebrow">Brand strategy · Nü Tea, Vancouver · 2025</p>
       <h3>Repositioning a neighbourhood tea shop</h3>
-      <p>Vancouver's tea market is crowded, and Nü Tea looked like everyone else. As Marketing &amp; Branding Lead, I ran a brand audit and segmented its customers, then repositioned the shop around what set it apart: fresh, clean ingredients from trusted local suppliers.</p>
+      <p>Vancouver's tea market is crowded, and Nü Tea looked like everyone else. As its Marketing &amp; Branding Lead in 2025, I ran a brand audit and segmented its customers, then repositioned the shop around what set it apart: fresh, clean ingredients from trusted local suppliers.</p>
       <p>I briefed international designers on the new identity, built a seasonal promotion calendar from the segmentation, and ran bilingual campaigns on Instagram and Xiaohongshu for the key segments.</p>
       <div class="stats">
         <div><b>+18%</b><span>Sales from the seasonal promotion strategy</span></div>
@@ -538,7 +523,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
         <div><b>+1,300%</b><span>Social views</span></div>
         <div><b>+933%</b><span>Shares</span></div>
       </div>
-      <p class="tags">Brand audit · Segmentation · Positioning · Promotion strategy</p>
+      <a class="link-more" href="https://www.instagram.com/nutea_kerrisdale/" target="_blank" rel="noopener">See Nü Tea on Instagram ↗</a>
     </div>
     <div class="story-media">
       <img class="reveal" src="img/nutea-bags.jpg" alt="Nü Tea identity on cups and tote bags in white and deep green" loading="lazy" width="1098" height="700">
@@ -551,29 +536,35 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
         <img style="--ar:1.7514" src="img/nutea-loyalty.jpg" alt="Nü Tea loyalty stamp card" loading="lazy" width="916" height="523">
         <img style="--ar:1.7611" src="img/nutea-event.jpg" alt="Nü Tea event and catering card" loading="lazy" width="914" height="519">
       </div>
+      <img class="reveal" src="img/nutea-xhs.jpg" alt="Nü Tea Xiaohongshu posts: the rebranding day celebration and two seasonal drink launches" loading="lazy" width="1200" height="506">
     </div>
   </div>
 </section>
 
 <!-- CHANNELS -->
 <section id="channels" style="padding-top: 0">
-  <div class="wrap channels">
-    <div class="copy reveal">
-      <p class="eyebrow">Audience strategy · Xiaohongshu &amp; Douyin · 2020–now</p>
+  <div class="wrap story">
+    <div class="story-text">
       <h3>Testing what audiences respond to, on my own channels</h3>
-      <p>I've run bilingual channels since 2020, and I use them as a lab. Each post tests a hook, a format or a segment, and the analytics tell me what earns attention with Gen Z audiences in China and North America.</p>
-      <p>That audience has brought in 30+ brand partnerships with local and international businesses.</p>
+      <p>Since 2020 I've run bilingual channels on Douyin and Xiaohongshu as Eva爱喝美式, and I use them as a lab. Each post tests a hook, a format or a segment, and the analytics show what earns attention with Gen Z audiences in China and North America.</p>
+      <p>Relatable student stories travel furthest on Douyin, where one video passed 12 million views. On Xiaohongshu, practical city guides and restaurant reviews get saved and shared, and that audience has brought in 30+ brand partnerships.</p>
       <div class="stats">
-        <div><b>12M+</b><span>Views on Douyin, 2024</span></div>
+        <div><b>12M+</b><span>Views on one Douyin video</span></div>
         <div><b>300K+</b><span>Likes on Douyin</span></div>
         <div><b>30+</b><span>Brand collaborations on Xiaohongshu</span></div>
         <div><b>14K+</b><span>Likes and saves on Xiaohongshu</span></div>
       </div>
     </div>
-    <div class="media reveal">
-      <img style="--ar:0.4600" src="img/douyin.jpg" alt="Douyin video from Eva's channel" loading="lazy" width="506" height="1100">
-      <img style="--ar:0.6280" src="img/rb-montreal.jpg" alt="Xiaohongshu post: three-day Montreal food guide" loading="lazy" width="466" height="742">
-      <img style="--ar:0.5858" src="img/rb-greek.jpg" alt="Xiaohongshu post: restaurant review" loading="lazy" width="444" height="758">
+    <div class="story-media">
+      <img class="reveal" src="img/douyin-grid.jpg" alt="Douyin channel: five videos with 1.7 million, 12.3 million, 94 thousand, 3 thousand and 14 thousand views" loading="lazy" width="1400" height="398">
+      <div class="pair reveal">
+        <img style="--ar:0.4600" src="img/douyin.jpg" alt="Douyin video with 12.4 million views" loading="lazy" width="506" height="1100">
+        <img style="--ar:0.6280" src="img/rb-montreal.jpg" alt="Xiaohongshu post: three-day Montreal food guide" loading="lazy" width="466" height="742">
+      </div>
+      <div class="pair reveal">
+        <img style="--ar:0.5858" src="img/rb-greek.jpg" alt="Xiaohongshu post: Greek skewers restaurant review" loading="lazy" width="444" height="758">
+        <img style="--ar:0.5914" src="img/rb-premiere.jpg" alt="Xiaohongshu post from a film premiere in Vancouver" loading="lazy" width="440" height="744">
+      </div>
     </div>
   </div>
 </section>
@@ -582,11 +573,11 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 <section id="research" style="padding-top: 0">
   <div class="wrap research">
     <div class="copy reveal">
-      <p class="eyebrow">Qualitative research · UBC Sauder · 2025–now</p>
       <h3>How small businesses pass the torch</h3>
     </div>
     <div class="copy reveal">
-      <p>As a Business Research Assistant, I recruit and interview local small business owners for a grounded-theory study of family business succession. I also designed the AI transcription pipeline the team now uses.</p>
+      <p>As a Business Research Assistant at UBC Sauder, I recruit and interview local small business owners for a grounded-theory study of family business succession. I also designed the AI transcription pipeline the team now uses.</p>
+      <p>The findings are being written up as a Harvard Business case study.</p>
       <div class="stats">
         <div><b>30+</b><span>Businesses interviewed</span></div>
         <div><b>80+</b><span>Hours of manual work saved</span></div>
@@ -603,7 +594,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
       <h2 class="reveal">Experience</h2>
       <ol>
         <li><span class="when">2026 – 2027</span><div><h4>MS Marketing, Analytics</h4><div class="org">USC Marshall School of Business</div><p>VP, Student Advising Committee. Marketing Case Competition semi-finalist (Fluo).</p></div></li>
-        <li><span class="when">2025 – now</span><div><h4>Business Research Assistant</h4><div class="org">UBC Sauder School of Business</div></div></li>
+        <li><span class="when">2025 – now</span><div><h4>Business Research Assistant</h4><div class="org">UBC Sauder School of Business</div><p>Family business succession study, being written up as a Harvard Business case study.</p></div></li>
         <li><span class="when">2025</span><div><h4>Marketing &amp; Branding Lead</h4><div class="org">Nü Tea (Top Gain Kao Ltd.), Vancouver</div></div></li>
         <li><span class="when">2024 – 2025</span><div><h4>Regulatory Affairs Intern</h4><div class="org">Daiya Foods, Burnaby</div><p>Advised product launches across Canada, the U.S., the EU and Southeast Asia. Automated a 50,000+ data point allergen and certification database, cutting SKU review time 3x.</p></div></li>
         <li><span class="when">2020 – now</span><div><h4>Digital Content Creator</h4><div class="org">Xiaohongshu &amp; Douyin</div></div></li>
