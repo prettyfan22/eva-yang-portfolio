@@ -4,182 +4,309 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Eva Yang Portfolio</title>
-<meta name="description" content="Eva Yang, marketing strategist and content creator. USC Marshall MS Marketing.">
+<meta name="description" content="Eva Yang: brand and market strategy. USC Marshall MS Marketing, Analytics.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500&display=swap">
 <style>
-/* Layout: a printed lookbook. Full-bleed colour bands alternate sage and mustard like the Canva deck; huge condensed caps, photos as plates with captions. */
+/* Layout: one calm page in the Apple manner. A single ground colour runs top to bottom; the Fluo case fades into a dark product stage and back out.
+   Case studies use sticky storytelling: the story stays pinned on the left while the evidence scrolls past on the right. */
 :root {
   color-scheme: light;
-  --sage: #7d8a74;
-  --sage-deep: #5f6b57;
-  --mustard: #c5953a;
-  --paper: #ecebe2;
-  --ink: #23251f;
-  --ink-soft: #4d5147;
-  --on-band: #f4f2e8;
-  --line: rgba(35, 37, 31, .16);
-  --display: "Bebas Neue", "Oswald", "Arial Narrow", Impact, sans-serif;
-  --body: "Archivo", "Helvetica Neue", Arial, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --bg: #fafaf7;
+  --surface: #f0f1eb;
+  --ink: #1c1e1a;
+  --muted: #62675d;
+  --accent: #5d6d50;
+  --line: rgba(28, 30, 26, .12);
+  /* Fluo stage: dark in both themes, by design */
+  --f-bg: #0f110e;
+  --f-surface: #1b1e19;
+  --f-raise: #262a23;
+  --f-ink: #f2f4ec;
+  --f-muted: #a4aa9c;
+  --f-lime: #b9e35b;
+  --f-pink: #ea93e5;
+  --font: "Geist", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: "Geist Mono", ui-monospace, Menlo, monospace;
+  --radius: 22px;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --sage: #4d5847; --sage-deep: #3b4437; --mustard: #a87b2a;
-    --paper: #1c1e1a; --ink: #e9e7dc; --ink-soft: #b6b6aa; --on-band: #f1efe4;
-    --line: rgba(233, 231, 220, .16); color-scheme: dark;
+    --bg: #121411; --surface: #1b1e19; --ink: #edeee7; --muted: #a3a89b; --accent: #a9b99a;
+    --line: rgba(237, 238, 231, .14); color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --sage: #4d5847; --sage-deep: #3b4437; --mustard: #a87b2a;
-  --paper: #1c1e1a; --ink: #e9e7dc; --ink-soft: #b6b6aa; --on-band: #f1efe4;
-  --line: rgba(233, 231, 220, .16); color-scheme: dark;
+  --bg: #121411; --surface: #1b1e19; --ink: #edeee7; --muted: #a3a89b; --accent: #a9b99a;
+  --line: rgba(237, 238, 231, .14); color-scheme: dark;
 }
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; }
-[hidden] { display: none !important; }
-body { background: var(--paper); color: var(--ink); font: 400 16px/1.6 var(--body); }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 17px/1.55 var(--font); -webkit-font-smoothing: antialiased; }
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; }
-a:focus-visible, button:focus-visible { outline: 2px solid var(--mustard); outline-offset: 3px; }
+button { font: inherit; color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+[hidden] { display: none !important; }
 
-.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
-.band { padding-block: clamp(56px, 9vw, 112px); }
-.band.sage { background: var(--sage); color: var(--on-band); }
-.band.mustard { background: var(--mustard); color: var(--ink); }
-.band.paper { background: var(--paper); }
+.wrap { max-width: 1200px; margin: 0 auto; padding-left: max(22px, env(safe-area-inset-left, 0px)); padding-right: max(22px, env(safe-area-inset-right, 0px)); }
+section { padding-block: clamp(80px, 12vw, 160px); }
 
-h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: .88; margin: 0; letter-spacing: .01em; text-wrap: balance; }
-h2 { font-size: clamp(64px, 11vw, 150px); }
-h3 { font-size: clamp(34px, 4.4vw, 52px); }
-p { margin: 0; max-width: 62ch; }
-.label { font: 600 12px/1.3 var(--body); letter-spacing: .14em; text-transform: uppercase; }
-.mono { font-family: var(--mono); font-size: 12px; letter-spacing: .04em; }
+h1, h2, h3, h4 { margin: 0; font-weight: 600; letter-spacing: -0.025em; text-wrap: balance; }
+h1 { font-size: clamp(52px, 8vw, 104px); line-height: 1; letter-spacing: -0.04em; }
+h2 { font-size: clamp(40px, 5.6vw, 72px); line-height: 1.04; letter-spacing: -0.035em; }
+h3 { font-size: clamp(30px, 3.4vw, 44px); line-height: 1.08; }
+p { margin: 0; max-width: 60ch; }
+.eyebrow { font: 500 13px/1.3 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.lede { font-size: clamp(19px, 1.8vw, 23px); line-height: 1.45; color: var(--muted); letter-spacing: -0.01em; }
+.lede strong { color: var(--ink); font-weight: 600; }
 
 /* nav */
-nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--sage); color: var(--on-band); border-bottom: 1px solid rgba(255,255,255,.14); }
-body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--sage); }
-nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
-nav .brand { font-family: var(--display); font-size: 24px; letter-spacing: .04em; text-decoration: none; }
-nav ul { list-style: none; display: flex; gap: clamp(14px, 3vw, 32px); margin: 0; padding: 0; }
-nav a { text-decoration: none; font: 600 12px var(--body); letter-spacing: .14em; text-transform: uppercase; opacity: .85; }
-nav a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 4px; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: color-mix(in srgb, var(--bg) 78%, transparent); backdrop-filter: saturate(180%) blur(18px); -webkit-backdrop-filter: saturate(180%) blur(18px); border-bottom: 1px solid var(--line); }
+nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 52px; }
+nav .brand { font-weight: 600; letter-spacing: -0.02em; text-decoration: none; }
+nav ul { list-style: none; display: flex; gap: clamp(16px, 3vw, 32px); margin: 0; padding: 0; }
+nav ul a { text-decoration: none; font-size: 14px; color: var(--muted); }
+nav ul a:hover { color: var(--ink); }
 
 /* hero */
-.hero { background: var(--sage); color: var(--on-band); padding-block: clamp(36px, 6vw, 72px) 0; overflow: hidden; }
-.hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(24px, 4vw, 56px); align-items: end; }
-.hero h1 { font-size: clamp(96px, 19vw, 250px); line-height: .8; margin-top: 18px; }
-.hero h1 span { display: block; color: var(--mustard); }
-.hero .lede { font-size: clamp(17px, 1.7vw, 20px); margin-top: 28px; color: var(--on-band); opacity: .92; }
-.hero .roles { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 22px; }
-.hero figure { margin: 0; position: relative; align-self: stretch; display: flex; align-items: flex-end; }
-.hero figure img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: 50% 30%; }
-.stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid rgba(255,255,255,.22); margin-top: clamp(32px, 5vw, 56px); }
-.stat { padding: 20px 16px 26px 0; min-width: 0; }
-.stat + .stat { padding-left: 16px; border-left: 1px solid rgba(255,255,255,.22); }
-.stat b { display: block; font: 400 clamp(40px, 5.2vw, 64px)/1 var(--display); color: var(--on-band); }
-.stat span { font-size: 13px; opacity: .85; }
+.hero { padding-block: clamp(56px, 8vw, 104px) clamp(64px, 8vw, 120px); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.hero .eyebrow { margin-bottom: 20px; }
+.hero h1 + .lede { margin-top: 28px; }
+.hero figure { margin: 0; }
+.hero figure img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; border-radius: var(--radius); }
+.proof { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: clamp(56px, 7vw, 88px); padding-top: 28px; border-top: 1px solid var(--line); }
+.proof b { display: block; font-size: clamp(26px, 2.6vw, 34px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; }
+.proof span { display: block; margin-top: 6px; font-size: 14px; line-height: 1.4; color: var(--muted); }
 
 /* about */
-.about { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: start; }
-.about h2 { color: var(--ink); }
-.about .copy { display: grid; gap: 18px; font-size: 18px; }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-.chips li { list-style: none; border: 1px solid var(--line); padding: 6px 12px; font: 500 13px var(--body); }
-.chips { padding: 0; }
+.about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.about .copy { display: grid; gap: 22px; }
+.caps { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.caps li { padding: 14px 12px 14px 0; border-bottom: 1px solid var(--line); font-size: 15px; font-weight: 500; }
 
-/* projects */
-.proj-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 16px 40px; margin-bottom: clamp(36px, 5vw, 64px); }
-.proj-head p { font-size: 17px; }
-.project { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(24px, 4vw, 56px); padding-block: clamp(40px, 6vw, 72px); border-top: 1px solid var(--line); }
-.project:first-of-type { border-top: 0; padding-top: 0; }
-.project .meta { display: grid; gap: 16px; align-content: start; min-width: 0; }
-.project .kicker { display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; }
-.project .kicker .mono { opacity: .75; }
-.results { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0; border-top: 1px solid var(--line); margin-top: 6px; }
-.results div { padding: 14px 12px 4px 0; }
-.results b { display: block; font: 400 40px/1 var(--display); color: var(--mustard); }
-.mustard .results b { color: var(--ink); }
-.results span { font-size: 13px; color: var(--ink-soft); display: block; }
-.sage .results span, .sage .project p, .sage .tags { color: var(--on-band); }
-.sage .results { border-color: rgba(255,255,255,.22); }
-.sage .project { border-color: rgba(255,255,255,.22); }
-.tags { font: 600 11px var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); }
-.plates { display: grid; gap: 12px; min-width: 0; }
-.plates.three { grid-template-columns: repeat(3, 1fr); }
-.plates.two { grid-template-columns: 1fr 1fr; }
-.plates figure { margin: 0; min-width: 0; }
-.plates img { width: 100%; height: 100%; object-fit: cover; }
-.plates .tall img { aspect-ratio: 3 / 5; }
-.plates .port img { aspect-ratio: 4 / 5; }
-.plates .wide { grid-column: 1 / -1; }
-.plates .wide img { aspect-ratio: 16 / 10; }
-figcaption { font: 500 11px/1.4 var(--mono); margin-top: 6px; opacity: .75; }
+/* section intro */
+.intro { text-align: center; display: grid; justify-items: center; gap: 18px; }
+.intro p { margin-inline: auto; }
 
-.plates .slide img, .plates figure:not([class]) img { aspect-ratio: 16 / 10; }
-.plates .slide img { aspect-ratio: 16 / 9; }
-.badge { justify-self: start; background: var(--ink); color: var(--mustard); font: 600 12px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; padding: 8px 12px; }
-.link-out { justify-self: start; font: 600 13px var(--body); letter-spacing: .1em; text-transform: uppercase; text-decoration: none; border-bottom: 2px solid currentColor; padding-bottom: 3px; }
-.link-out:hover { opacity: .75; }
-#fluo .plates img { aspect-ratio: auto; height: auto; object-fit: contain; }
-.cases.one { grid-template-columns: 1fr; max-width: 760px; }
-.douyin { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
-.douyin figure { margin: 0; justify-self: center; max-width: 340px; width: 100%; }
-.douyin figure img { border-radius: 26px; border: 6px solid var(--ink); }
+/* sticky storytelling */
+.story { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.story-text { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 92px); display: grid; gap: 20px; align-content: start; }
+.story-text p { font-size: 17px; }
+.story-media { display: grid; gap: clamp(20px, 3vw, 32px); min-width: 0; }
+.story-media img { width: 100%; border-radius: var(--radius); }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 32px); }
+.stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 24px; padding-top: 20px; border-top: 1px solid var(--line); }
+.stats b { display: block; font-size: 34px; font-weight: 600; letter-spacing: -0.035em; line-height: 1; font-variant-numeric: tabular-nums; }
+.stats span { display: block; margin-top: 6px; font-size: 14px; color: var(--muted); line-height: 1.4; }
+.tags { font: 500 12px/1.6 var(--mono); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
 
-/* case comp + research */
-.cases { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(20px, 3vw, 32px); }
-.case { background: var(--paper); color: var(--ink); padding: clamp(24px, 3.4vw, 40px); display: grid; gap: 14px; align-content: start; min-width: 0; }
-.case h3 { font-size: clamp(38px, 4vw, 52px); }
-.case ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
-.case .mono { color: var(--ink-soft); }
+/* Fluo stage */
+.fluo-stage { background: linear-gradient(to bottom, var(--bg) 0, var(--f-bg) 320px, var(--f-bg) calc(100% - 320px), var(--bg) 100%); color: var(--f-ink); padding-block: 360px; }
+.fluo-stage .eyebrow { color: var(--f-lime); }
+.fluo-stage .story-text p { color: var(--f-muted); }
+.fluo-stage .story-text p strong { color: var(--f-ink); font-weight: 500; }
+.badge { justify-self: start; display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px; background: var(--f-lime); color: #10120e; font-size: 13px; font-weight: 600; }
+.wordmark { font-size: 28px; font-weight: 700; letter-spacing: -0.05em; }
+.wordmark i { color: var(--f-lime); font-style: normal; }
+.steps { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 2px; border-left: 1px solid rgba(242, 244, 236, .16); }
+.steps a { display: block; padding: 6px 0 6px 16px; margin-left: -1px; border-left: 2px solid transparent; text-decoration: none; font-size: 15px; color: var(--f-muted); transition: color .3s, border-color .3s; }
+.steps a.on { color: var(--f-ink); border-left-color: var(--f-lime); }
+.link-out { justify-self: start; font-size: 16px; font-weight: 500; color: var(--f-lime); text-decoration: none; }
+.link-out:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+.chapter { min-height: 82vh; display: grid; align-content: center; gap: 28px; padding-block: 40px; }
+.chapter h4 { font-size: clamp(26px, 2.8vw, 36px); line-height: 1.1; letter-spacing: -0.03em; max-width: 18ch; }
+.chapter .kicker { font: 500 13px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--f-lime); }
+.chapter .note { font-size: 15px; color: var(--f-muted); max-width: 52ch; }
+.card { background: var(--f-surface); border-radius: var(--radius); padding: clamp(22px, 3vw, 36px); }
+
+/* research */
+.big-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.big-stats .card { display: grid; gap: 10px; align-content: space-between; min-height: 200px; }
+.big-stats b { font-size: clamp(44px, 5vw, 68px); font-weight: 600; letter-spacing: -0.05em; line-height: 1; font-variant-numeric: tabular-nums; }
+.big-stats .card:nth-child(1) b { color: var(--f-lime); }
+.big-stats .card:nth-child(2) b { color: var(--f-pink); }
+.big-stats span { font-size: 15px; color: var(--f-muted); line-height: 1.4; }
+.sample { display: flex; flex-wrap: wrap; gap: 10px 28px; font-size: 15px; color: var(--f-muted); }
+.sample b { color: var(--f-ink); font-weight: 600; }
+
+/* positioning */
+.quote { font-size: clamp(22px, 2.4vw, 30px); line-height: 1.3; letter-spacing: -0.02em; color: var(--f-ink); max-width: 30ch; }
+.quote em { font-style: normal; color: var(--f-lime); }
+.map { position: relative; aspect-ratio: 16 / 10; background: var(--f-surface); border-radius: var(--radius); overflow: hidden; }
+.map .ax { position: absolute; background: rgba(242, 244, 236, .18); }
+.map .ax.h { left: 6%; right: 6%; top: 50%; height: 1px; }
+.map .ax.v { top: 8%; bottom: 8%; left: 50%; width: 1px; }
+.map .al { position: absolute; font: 500 10.5px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--f-muted); }
+.map .dot { position: absolute; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 7px; font: 500 12px var(--mono); color: var(--f-muted); white-space: nowrap; }
+.map .dot::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: #6c7166; flex: none; }
+.map .dot.me { color: #10120e; }
+.map .dot.me::before { display: none; }
+.map .dot.me span { display: grid; place-items: center; width: clamp(54px, 7vw, 76px); aspect-ratio: 1; border-radius: 50%; background: var(--f-lime); font: 700 clamp(15px, 1.8vw, 20px) var(--font); letter-spacing: -0.05em; box-shadow: 0 0 0 10px rgba(185, 227, 91, .12); }
+
+/* phone demo */
+.demo { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(24px, 4vw, 48px); align-items: center; }
+.phone { width: min(300px, 78vw); aspect-ratio: 9 / 19; background: #f6f7f2; color: #1b1d18; border-radius: 46px; border: 9px solid #050605; box-shadow: 0 0 0 1px #2c3029, 0 40px 80px -30px rgba(185, 227, 91, .35); position: relative; overflow: hidden; display: flex; flex-direction: column; font-size: 13px; }
+.phone .island { position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 92px; height: 26px; border-radius: 20px; background: #050605; z-index: 2; }
+.phone .head { display: flex; align-items: center; gap: 10px; padding: 46px 16px 12px; border-bottom: 1px solid #e3e5dc; background: #fff; }
+.phone .f { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--f-lime); font-weight: 700; font-size: 13px; letter-spacing: -0.04em; }
+.phone .head b { display: block; font-size: 13.5px; }
+.phone .head small { color: #737868; font-size: 11px; }
+.screen { flex: 1; padding: 14px; display: grid; align-content: start; gap: 10px; overflow: hidden; }
+.bubble { max-width: 86%; padding: 9px 12px; border-radius: 16px; line-height: 1.38; }
+.bubble.me { justify-self: end; background: #1b1d18; color: #f2f4ec; border-bottom-right-radius: 5px; }
+.bubble.bot { background: #fff; border: 1px solid #e3e5dc; border-bottom-left-radius: 5px; }
+.typing { justify-self: start; display: flex; gap: 4px; padding: 11px 13px; background: #fff; border: 1px solid #e3e5dc; border-radius: 16px; }
+.typing i { width: 6px; height: 6px; border-radius: 50%; background: #9aa08f; animation: blink 1s infinite; }
+.typing i:nth-child(2) { animation-delay: .15s; } .typing i:nth-child(3) { animation-delay: .3s; }
+@keyframes blink { 0%, 100% { opacity: .3; } 50% { opacity: 1; } }
+.spot { background: #fff; border: 1px solid #e3e5dc; border-radius: 12px; padding: 9px 11px; }
+.spot.top { border: 1.5px solid #4f7a1f; }
+.spot .tag { font: 600 9.5px var(--mono); letter-spacing: .06em; color: #4f7a1f; text-transform: uppercase; }
+.spot b { display: block; font-size: 13px; margin-top: 2px; }
+.spot small { color: #737868; font-size: 11px; }
+.order { justify-self: center; margin-top: 4px; background: var(--f-lime); border-radius: 999px; padding: 9px 18px; font-weight: 600; font-size: 12.5px; }
+.js .screen[data-panel="ask"] > * { opacity: 0; transform: translateY(8px); transition: opacity .45s ease, transform .45s ease; }
+.js .screen[data-panel="ask"] > .show { opacity: 1; transform: none; }
+.fri { text-align: center; padding-top: 26px; display: grid; gap: 4px; }
+.fri .t { font: 600 10px var(--mono); letter-spacing: .1em; color: #4f7a1f; }
+.fri .n { font-size: 76px; font-weight: 500; letter-spacing: -0.06em; line-height: 1; margin-top: 8px; font-variant-numeric: tabular-nums; }
+.fri .y { font-size: 17px; letter-spacing: -0.02em; }
+.aside { margin-top: 18px; text-align: left; display: grid; gap: 7px; }
+.aside div { display: flex; justify-content: space-between; background: #fff; border: 1px solid #e3e5dc; border-radius: 10px; padding: 8px 11px; font-size: 12px; }
+.aside div span:last-child { color: #4f7a1f; font-weight: 600; }
+.arch .t { font: 600 10px var(--mono); letter-spacing: .1em; color: #737868; }
+.arch h5 { margin: 4px 0 6px; font-size: 24px; letter-spacing: -0.04em; font-weight: 600; }
+.arch .bar { display: flex; height: 7px; border-radius: 9px; overflow: hidden; gap: 2px; margin: 10px 0 8px; }
+.arch .bar i { display: block; height: 100%; }
+.arch .legend { display: flex; flex-wrap: wrap; gap: 5px; }
+.arch .legend span { font-size: 10.5px; border: 1px solid #e3e5dc; border-radius: 99px; padding: 3px 8px; background: #fff; }
+.arch .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 12px; }
+.arch .tiles div { background: #fff; border: 1px solid #e3e5dc; border-radius: 10px; padding: 8px 10px; }
+.arch .tiles small { display: block; color: #737868; font-size: 10.5px; }
+.arch .tiles b { font-size: 13.5px; }
+.tabs { display: grid; gap: 8px; }
+.tabs button { display: grid; gap: 2px; text-align: left; background: transparent; border: 1px solid rgba(242, 244, 236, .14); border-radius: 16px; padding: 14px 18px; cursor: pointer; transition: background .25s, border-color .25s; }
+.tabs button b { font-weight: 600; font-size: 16px; color: var(--f-ink); }
+.tabs button span { font-size: 14px; color: var(--f-muted); }
+.tabs button:hover { border-color: rgba(242, 244, 236, .3); }
+.tabs button[aria-selected="true"] { background: var(--f-surface); border-color: var(--f-lime); }
+
+/* business model */
+.flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.flow .card { display: grid; gap: 8px; align-content: start; }
+.flow .card small { font: 500 11.5px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--f-muted); }
+.flow .card b { font-size: clamp(34px, 3.6vw, 48px); font-weight: 600; letter-spacing: -0.045em; line-height: 1; }
+.flow .card p { font-size: 14.5px; color: var(--f-muted); }
+.flow .card.lime { background: var(--f-lime); color: #10120e; }
+.flow .card.lime small, .flow .card.lime p { color: #2d3a17; }
+.split { display: flex; gap: 10px; margin-top: 6px; }
+.split div { flex: 1; border-radius: 14px; padding: 10px 12px; background: rgba(16, 18, 14, .12); }
+.split div b { font-size: 22px; }
+.split div span { display: block; font-size: 12px; }
+
+/* launch */
+.ask { display: grid; gap: 0; }
+.ask div { display: grid; grid-template-columns: 110px 1fr; gap: 16px; align-items: baseline; padding-block: 16px; border-bottom: 1px solid rgba(242, 244, 236, .12); }
+.ask div:last-child { border-bottom: 0; }
+.ask b { font-size: 44px; font-weight: 600; letter-spacing: -0.05em; line-height: 1; color: var(--f-lime); }
+.ask strong { display: block; font-weight: 600; font-size: 17px; }
+.ask span { font-size: 14px; color: var(--f-muted); }
+.road { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.road .card { padding: 20px; display: grid; gap: 6px; }
+.road small { font: 500 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--f-lime); }
+.road b { font-size: 17px; font-weight: 600; letter-spacing: -0.02em; }
+.road span { font-size: 13.5px; color: var(--f-muted); line-height: 1.4; }
+.funnel { display: grid; gap: 10px; }
+.funnel div { display: grid; grid-template-columns: 112px 1fr 60px; align-items: center; gap: 14px; font-size: 14px; color: var(--f-muted); }
+.funnel .track { height: 12px; border-radius: 99px; background: var(--f-raise); overflow: hidden; }
+.funnel .fill { display: block; height: 100%; width: var(--w); border-radius: 99px; background: var(--f-lime); transform-origin: left; }
+.funnel b { color: var(--f-ink); font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
+.js .funnel .fill { transform: scaleX(0); transition: transform 1.1s cubic-bezier(.2, .7, .2, 1); }
+.js .funnel.in .fill { transform: none; }
+.js .funnel.in div:nth-child(2) .fill { transition-delay: .12s; }
+.js .funnel.in div:nth-child(3) .fill { transition-delay: .24s; }
+.js .funnel.in div:nth-child(4) .fill { transition-delay: .36s; }
+
+/* content channels */
+.channels { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
+.channels .media { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 14px; align-items: end; }
+.channels .media img { width: 100%; border-radius: 16px; }
+.channels .copy { display: grid; gap: 22px; }
+
+/* research */
+.research { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.research .copy { display: grid; gap: 22px; }
+.research .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
 /* experience */
-.xp { display: grid; grid-template-columns: 1fr 2fr; gap: clamp(28px, 5vw, 72px); }
+.xp { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: clamp(32px, 6vw, 96px); }
 .xp ol { list-style: none; margin: 0; padding: 0; }
-.xp li { display: grid; grid-template-columns: 150px 1fr; gap: 8px 24px; padding-block: 22px; border-top: 1px solid var(--line); }
+.xp li { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 6px 24px; padding-block: 22px; border-top: 1px solid var(--line); }
 .xp li:last-child { border-bottom: 1px solid var(--line); }
-.xp .when { font-variant-numeric: tabular-nums; color: var(--ink-soft); }
-.xp h4 { margin: 0; font: 600 18px/1.3 var(--body); }
-.xp .org { color: var(--ink-soft); font-size: 15px; }
-.xp p { margin-top: 6px; font-size: 15px; }
-.skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: clamp(40px, 6vw, 64px); }
-.skills h4 { margin: 0 0 10px; }
-.skills p { font-size: 15px; color: var(--ink-soft); }
+.xp .when { font: 500 13px var(--mono); color: var(--muted); padding-top: 3px; font-variant-numeric: tabular-nums; }
+.xp h4 { font-size: 18px; letter-spacing: -0.015em; }
+.xp .org { color: var(--muted); font-size: 15px; }
+.xp li p { margin-top: 6px; font-size: 15px; color: var(--muted); }
+.skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: clamp(48px, 6vw, 80px); }
+.skills h4 { font: 500 13px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+.skills p { font-size: 15px; color: var(--muted); }
 
 /* contact */
-.contact { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(28px, 5vw, 64px); align-items: end; }
-.contact h2 { font-size: clamp(80px, 14vw, 190px); }
-.contact-lines { display: grid; gap: 18px; margin-top: 32px; }
-.contact-line { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; font-size: clamp(18px, 2.2vw, 24px); }
-.contact-line .label { width: 90px; opacity: .8; }
-.contact-line .val { user-select: all; overflow-wrap: anywhere; }
-.copy-btn { font: 600 11px var(--body); letter-spacing: .14em; text-transform: uppercase; background: transparent; color: inherit; border: 1px solid currentColor; padding: 6px 10px; cursor: pointer; }
-.copy-btn:hover { background: var(--on-band); color: var(--sage-deep); }
+.contact { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
+.contact .lines { display: grid; gap: 14px; margin-top: 36px; }
+.contact .line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-size: clamp(18px, 2vw, 22px); }
+.contact .line .k { width: 92px; font: 500 13px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.contact .val { overflow-wrap: anywhere; }
+.copy-btn { font-size: 13px; font-weight: 500; background: var(--surface); border: 1px solid var(--line); border-radius: 99px; padding: 6px 14px; cursor: pointer; }
+.copy-btn:hover { border-color: var(--muted); }
 .contact figure { margin: 0; }
-.contact figure img { width: 100%; aspect-ratio: 1; object-fit: cover; }
-footer { background: var(--sage-deep); color: var(--on-band); padding-block: 22px; font-size: 13px; }
-footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; opacity: .85; }
+.contact figure img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius); }
+footer { border-top: 1px solid var(--line); padding-block: 24px; font-size: 13px; color: var(--muted); }
+footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
 
-@media (max-width: 880px) {
-  .hero-grid, .about, .project, .douyin, .cases, .xp, .contact { grid-template-columns: 1fr; }
-  .hero figure { max-width: 420px; }
-  .stats { grid-template-columns: repeat(2, 1fr); }
-  .stat:nth-child(3) { padding-left: 0; border-left: 0; }
-  .stat:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,.22); }
-  .skills { grid-template-columns: 1fr; }
-  .douyin figure { order: -1; max-width: 280px; }
-}
-@media (max-width: 560px) {
-  nav ul li:not(:last-child) { display: none; }
-  .xp li { grid-template-columns: 1fr; }
-  .plates.three { grid-template-columns: repeat(3, 1fr); gap: 8px; }
-}
+/* scroll-linked reveals: progressive, content is visible where unsupported */
 @media (prefers-reduced-motion: no-preference) {
-  .hero h1 span { animation: rise .9s cubic-bezier(.2,.7,.2,1) both .1s; }
-  @keyframes rise { from { transform: translateY(.18em); } to { transform: none; } }
+  @supports (animation-timeline: view()) {
+    .reveal { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% cover 28%; }
+    @keyframes rise { from { opacity: .08; transform: translateY(48px) scale(.985); } to { opacity: 1; transform: none; } }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .typing i { animation: none; }
+  .js .screen[data-panel="ask"] > *, .js .funnel .fill { transition: none; }
+}
+
+@media (max-width: 920px) {
+  .hero-grid, .about, .story, .channels, .research, .xp, .contact { grid-template-columns: minmax(0, 1fr); }
+  .hero figure { max-width: 440px; }
+  .proof { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .story-text { position: static; }
+  .steps { display: none; }
+  .chapter { min-height: 0; padding-block: 56px 0; }
+  .fluo-stage { padding-block: 280px; }
+  .skills { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 680px) {
+  nav ul li:not(:last-child) { display: none; }
+  .demo { grid-template-columns: minmax(0, 1fr); justify-items: center; }
+  .tabs { width: 100%; }
+  .big-stats, .flow, .road { grid-template-columns: minmax(0, 1fr); }
+  .big-stats .card { min-height: 0; }
+  .caps { grid-template-columns: minmax(0, 1fr); }
+  .research .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .xp li { grid-template-columns: minmax(0, 1fr); }
+  .map .dot { font-size: 10px; }
+  .map .al { font-size: 9px; }
+  .ask div { grid-template-columns: 76px 1fr; }
+  .ask b { font-size: 34px; }
+  .funnel div { grid-template-columns: 90px 1fr 46px; gap: 10px; }
 }
 </style>
 </head>
@@ -200,207 +327,385 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <p class="label">Portfolio · Los Angeles</p>
-        <h1>Eva<span>Yang</span></h1>
-        <div class="roles">
-          <span class="label">Marketing strategist</span>
-          <span class="label">Content creator</span>
-          <span class="label">USC Marshall MS Marketing</span>
-        </div>
-        <p class="lede">I build brands people want to share. Five years of making content on Xiaohongshu and Douyin taught me what makes an audience stop scrolling. Now I pair that instinct with research and analytics.</p>
+        <p class="eyebrow">Brand &amp; market strategy</p>
+        <h1>Eva Yang</h1>
+        <p class="lede">I turn customer research into <strong>positioning, launch plans and campaigns that move numbers.</strong> MS Marketing (Analytics) at USC Marshall.</p>
       </div>
       <figure>
         <img src="img/hero.jpg" alt="Eva Yang at a café table in Vancouver" width="825" height="1100">
       </figure>
     </div>
-    <div class="stats">
-      <div class="stat"><b>12M+</b><span>Douyin views</span></div>
-      <div class="stat"><b>300K+</b><span>Likes on short-form video</span></div>
-      <div class="stat"><b>150+</b><span>Pieces of content made</span></div>
-      <div class="stat"><b>+18%</b><span>Sales growth, Nü Tea rebrand</span></div>
+    <div class="proof">
+      <div><b>Semi-finalist</b><span>USC Marshall MSMKT Case Competition, Fluo</span></div>
+      <div><b>+18%</b><span>Sales growth from a seasonal strategy at Nü Tea</span></div>
+      <div><b>30+</b><span>Small businesses interviewed for UBC Sauder research</span></div>
+      <div><b>12M+</b><span>Views across my own bilingual social channels</span></div>
     </div>
   </div>
 </header>
 
-<section class="band paper">
+<section id="about">
   <div class="wrap about">
-    <h2>Hello,<br>I'm Eva</h2>
-    <div class="copy">
-      <p>I'm a Master of Science in Marketing candidate at USC Marshall, specializing in analytics. Before that I studied Food, Nutrition &amp; Health with a Commerce minor at UBC, which is how I ended up working across food brands, regulatory teams and small tea shops.</p>
-      <p>My work sits where creative meets measurable: I script, shoot and edit short video, write the copy, design the assets, then read the numbers to see what worked. I work in English and Mandarin, so I can take a brand to audiences on both sides of the Pacific.</p>
-      <ul class="chips" aria-label="Creative skills">
-        <li>Short video scripting</li>
-        <li>Shooting &amp; editing</li>
-        <li>Creative direction</li>
-        <li>Brand identity</li>
-        <li>Bilingual social campaigns</li>
-        <li>Survey &amp; interview research</li>
+    <h2 class="reveal">Hello, I'm Eva.</h2>
+    <div class="copy reveal">
+      <p class="lede">I work where research meets the market: finding out what customers actually want, deciding where a brand should stand, and building the plan that gets it there.</p>
+      <p>My background mixes science and business. I studied Food, Nutrition &amp; Health with a Commerce minor at UBC, advised product launches across four markets at Daiya Foods, and led a rebrand for a Vancouver tea shop. Five years of running bilingual channels on Xiaohongshu and Douyin taught me how audiences in North America and China decide what deserves their attention.</p>
+      <ul class="caps" aria-label="What I do">
+        <li>Customer interviews &amp; surveys</li>
+        <li>Positioning &amp; brand strategy</li>
+        <li>Go-to-market &amp; launch planning</li>
+        <li>Business models &amp; partnerships</li>
+        <li>Segmentation &amp; promotions</li>
+        <li>Channel strategy, EN &amp; CN</li>
       </ul>
     </div>
   </div>
 </section>
 
-<section class="band mustard" id="work">
-  <div class="wrap">
-    <div class="proj-head">
-      <h2>Selected<br>Work</h2>
-      <p>A student money app pitched at USC Marshall, a neighbourhood tea shop, and my own channels with millions of views.</p>
-    </div>
-
-    <article class="project" id="fluo">
-      <div class="meta">
-        <div class="kicker"><span class="label">Go-to-market strategy</span><span class="mono">USC Marshall MSMKT Case Competition · Fall 2026</span></div>
-        <span class="badge">Semi-finalist</span>
-        <h3>Launching Fluo at USC</h3>
-        <p>Our team built the launch plan for Fluo, a money app for socially active college students. The pitch: budgeting is restrictive, Fluo is permissive. We qualified for the semi-finals.</p>
-        <p>We started with research to learn why students overspend, then shaped the positioning, product bundle, business model and a USC-first launch. I built a working website demo with an interactive Money Buddy, and wrote the business model, roadmap and launch recommendation slides.</p>
-        <div class="results">
-          <div><b>14</b><span>Customer interviews</span></div>
-          <div><b>99</b><span>Survey responses</span></div>
-        </div>
-        <p class="tags">Customer research · Positioning · Business model · Web prototype</p>
-        <a class="link-out" href="https://fluo-usc-website.vercel.app" target="_blank" rel="noopener">Try the website demo ↗</a>
-      </div>
-      <div class="plates two">
-        <figure class="wide"><img src="img/fluo-demo-chat.jpg" alt="Fluo website demo: the Money Buddy answers 'Where's the best matcha near me?' with three nearby spots" loading="lazy"><figcaption>Website demo: ask the Money Buddy, get a pick and a partner discount</figcaption></figure>
-        <figure><img src="img/fluo-demo-archetype.jpg" alt="Fluo website demo: money archetype screen showing The Curator" loading="lazy"><figcaption>Demo: money archetype</figcaption></figure>
-        <figure><img src="img/fluo-demo-circles.jpg" alt="Fluo website demo: a Circle suggesting plans that fit four friends' budgets" loading="lazy"><figcaption>Demo: Fluo Circles</figcaption></figure>
-        <figure class="wide"><img src="img/fluo-deck-cover.jpg" alt="Fluo deck cover slide: Making Money Fun" loading="lazy"><figcaption>Final deck</figcaption></figure>
-        <figure class="slide"><img src="img/fluo-deck-launch.jpg" alt="Slide: launch Fluo at USC this December with 100 founding members and 10 partner merchants" loading="lazy"><figcaption>Launch recommendation</figcaption></figure>
-        <figure class="slide"><img src="img/fluo-deck-model.jpg" alt="Slide: business model, free for students and paid by merchants" loading="lazy"><figcaption>Business model</figcaption></figure>
-        <figure class="slide"><img src="img/fluo-deck-roadmap.jpg" alt="Slide: three-phase roadmap from USC to LA campuses to national" loading="lazy"><figcaption>Roadmap</figcaption></figure>
-        <figure class="slide"><img src="img/fluo-deck-waitlist.jpg" alt="Slide: waitlist funnel from 1,000 sign-ups to 120 repeat users" loading="lazy"><figcaption>Waitlist funnel</figcaption></figure>
-      </div>
-    </article>
-
-    <article class="project">
-      <div class="meta">
-        <div class="kicker"><span class="label">Branding</span><span class="mono">Nü Tea · Vancouver · 2025</span></div>
-        <h3>Rebranding a local tea shop</h3>
-        <p>As Marketing &amp; Branding Lead, I ran a brand audit, then worked with international designers on an identity that stands apart in Vancouver's crowded tea market: refreshing, spa-clean, and honest about its trusted suppliers and minimal additives.</p>
-        <p>I designed the posters, menu and collateral in Canva, and ran bilingual Instagram and Xiaohongshu campaigns aimed at the segments the audit surfaced.</p>
-        <div class="results">
-          <div><b>+1,300%</b><span>Social views</span></div>
-          <div><b>+933%</b><span>Shares</span></div>
-          <div><b>+18%</b><span>Sales</span></div>
-          <div><b>+11%</b><span>Average order value</span></div>
-        </div>
-        <p class="tags">Market analysis · Coordination · Brand identity · Social campaigns</p>
-      </div>
-      <div class="plates two">
-        <figure class="wide"><img src="img/nutea-bags.jpg" alt="Nü Tea branded cups and tote bags in white and deep green" loading="lazy"><figcaption>Identity system: cups, bags, sealing</figcaption></figure>
-        <figure class="port"><img src="img/nutea-mango.jpg" alt="Mango Cheese drink poster" loading="lazy"><figcaption>Seasonal poster</figcaption></figure>
-        <figure class="port"><img src="img/nutea-strawberry.jpg" alt="Strawberry Milk series poster" loading="lazy"><figcaption>Series poster</figcaption></figure>
-        <figure class="wide"><img src="img/nutea-menu.jpg" alt="Nü Tea menu with categorized drinks and customization icons" loading="lazy"><figcaption>Menu: few categories, icons for customizations, built to read fast</figcaption></figure>
-        <figure><img src="img/nutea-loyalty.jpg" alt="Nü Tea loyalty stamp card" loading="lazy"><figcaption>Loyalty card</figcaption></figure>
-        <figure><img src="img/nutea-event.jpg" alt="Nü Tea event catering card" loading="lazy"><figcaption>Event catering card</figcaption></figure>
-      </div>
-    </article>
-
-    <article class="project">
-      <div class="meta">
-        <div class="kicker"><span class="label">Self-directed content</span><span class="mono">Xiaohongshu · @evasfoodlog · 2020–now</span></div>
-        <h3>A food and travel journal on RedNote</h3>
-        <p>My own foodie account on Xiaohongshu (RedNote), mixing restaurant finds with travel guides. I handle everything: food photography, writing, and partnerships with local brands.</p>
-        <div class="results">
-          <div><b>30+</b><span>Brand collaborations</span></div>
-          <div><b>14K+</b><span>Likes &amp; saves</span></div>
-        </div>
-        <p class="tags">Food photography · Blog writing · Brand partnerships</p>
-      </div>
-      <div class="plates three">
-        <figure class="tall"><img src="img/rb-montreal.jpg" alt="Xiaohongshu post: three-day Montreal food guide" loading="lazy"><figcaption>Montreal guide</figcaption></figure>
-        <figure class="tall"><img src="img/rb-greek.jpg" alt="Xiaohongshu post: Greek restaurant review" loading="lazy"><figcaption>Restaurant review</figcaption></figure>
-        <figure class="tall"><img src="img/rb-film.jpg" alt="Xiaohongshu post: film premiere in Vancouver" loading="lazy"><figcaption>Film premiere</figcaption></figure>
-      </div>
-    </article>
+<section id="work" style="padding-bottom: 0">
+  <div class="wrap intro reveal">
+    <p class="eyebrow">Selected work</p>
+    <h2>From the first interview<br>to the launch plan.</h2>
+    <p class="lede">A fintech launch at USC, a small-business rebrand in Vancouver, and audience strategy tested on my own channels.</p>
   </div>
 </section>
 
-<section class="band sage">
-  <div class="wrap douyin">
-    <div class="meta" style="display:grid;gap:16px">
-      <div class="kicker" style="display:flex;gap:12px;flex-wrap:wrap"><span class="label">Short-form video</span><span class="mono">Douyin · 2024</span></div>
-      <h2>12M+<br>Views</h2>
-      <p style="font-size:18px">Self-directed 30-to-60-second videos on the everyday pain points of life as a Chinese university student. I wrote, shot, edited and retouched every one.</p>
-      <div class="results" style="max-width:420px">
-        <div><b style="color:var(--on-band)">300K+</b><span>Likes</span></div>
-        <div><b style="color:var(--on-band)">12M+</b><span>Views</span></div>
+<!-- FLUO -->
+<section class="fluo-stage" id="fluo" aria-label="Fluo case study">
+  <div class="wrap story">
+    <div class="story-text">
+      <span class="badge">Semi-finalist</span>
+      <p class="eyebrow">USC Marshall MSMKT Case Competition · Fall 2026</p>
+      <h3>Launching <span class="wordmark">fluo<i>.</i></span> at USC</h3>
+      <p>Fluo is a money app for socially active college students. Our team of five had <strong>two weeks</strong> to build its launch strategy: research, positioning, product, business model and go-to-market.</p>
+      <p>We lost a lot of sleep, and complained about it in the group chat every night. We kept going anyway, and the plan made the semi-finals.</p>
+      <p><strong>My part:</strong> the business model, the roadmap and the launch recommendation, plus a working website demo of the product.</p>
+      <ol class="steps" aria-label="Case study sections">
+        <li><a href="#f-research" data-step="f-research">Research</a></li>
+        <li><a href="#f-position" data-step="f-position">Positioning</a></li>
+        <li><a href="#f-product" data-step="f-product">Product demo</a></li>
+        <li><a href="#f-model" data-step="f-model">Business model</a></li>
+        <li><a href="#f-launch" data-step="f-launch">Launch plan</a></li>
+      </ol>
+      <a class="link-out" href="https://fluo-usc-website.vercel.app" target="_blank" rel="noopener">Open the full website demo ↗</a>
+    </div>
+
+    <div class="story-media">
+      <div class="chapter" id="f-research">
+        <p class="kicker">01 · Research</p>
+        <h4>Students want help paying for the fun.</h4>
+        <div class="sample"><span><b>14</b> in-depth interviews</span><span><b>99</b> survey responses</span></div>
+        <div class="big-stats">
+          <div class="card"><b data-count="72">72%</b><span>can't see where their money goes</span></div>
+          <div class="card"><b data-count="9">9%</b><span>use a budgeting app</span></div>
+          <div class="card"><b data-count="85">85%</b><span>would try Fluo to spend smarter or earn rewards</span></div>
+        </div>
+        <p class="note">Budgeting apps ask students to cut back. What students wanted was permission: to know what they could spend this weekend without guilt.</p>
       </div>
-      <p class="tags">Creative direction · Video editing · Photo retouching</p>
+
+      <div class="chapter" id="f-position">
+        <p class="kicker">02 · Positioning</p>
+        <h4>Budgeting is restrictive. Fluo is permissive.</h4>
+        <div class="map" role="img" aria-label="Perceptual map. Horizontal axis from logs the past to plans the future, vertical axis from discipline first to lifestyle first. Venmo, Bilt and Cleo sit in lifestyle first but log the past. Bank apps and Rocket Money log the past with discipline first. PocketGuard and YNAB plan the future with discipline first. Fluo stands alone in plans the future and lifestyle first.">
+          <span class="ax h"></span><span class="ax v"></span>
+          <span class="al" style="left:51.5%;top:5%">Lifestyle first</span>
+          <span class="al" style="left:51.5%;bottom:5%">Discipline first</span>
+          <span class="al" style="left:5%;top:52.5%">Logs the past</span>
+          <span class="al" style="right:5%;top:52.5%">Plans the future</span>
+          <span class="dot" style="left:15%;top:20%">Venmo</span>
+          <span class="dot" style="left:24%;top:30%">Bilt</span>
+          <span class="dot" style="left:36%;top:39%">Cleo</span>
+          <span class="dot" style="left:17%;top:66%">Bank apps</span>
+          <span class="dot" style="left:30%;top:82%">Rocket Money</span>
+          <span class="dot" style="left:70%;top:65%">PocketGuard</span>
+          <span class="dot" style="left:80%;top:82%">YNAB</span>
+          <span class="dot me" style="left:82%;top:26%"><span>fluo.</span></span>
+        </div>
+        <p class="quote">For socially active students, Fluo is the only money companion that gives <em>responsible spending permissions</em>, so they can enjoy college now and still reach their goals.</p>
+      </div>
+
+      <div class="chapter" id="f-product">
+        <p class="kicker">03 · Product demo</p>
+        <h4>A Money Buddy that says yes, within reason.</h4>
+        <div class="demo">
+          <div class="phone" aria-live="polite">
+            <span class="island"></span>
+            <div class="head"><span class="f">f.</span><div><b>Money Buddy</b><small>Near USC Village</small></div></div>
+            <div class="screen" data-panel="ask" role="tabpanel" id="p-ask" aria-labelledby="t-ask">
+              <div class="bubble me">Where's the best matcha near me?</div>
+              <div class="typing" aria-hidden="true"><i></i><i></i><i></i></div>
+              <div class="bubble bot">Three spots within a 12-minute walk. Dulce is the one. It's a Fluo partner, so you get <b>10% off</b>.</div>
+              <div class="spot top"><span class="tag">Top pick · Fluo partner</span><b>Dulce</b><small>USC Village · 3 min walk · 10% off</small></div>
+              <div class="spot"><b>Matcha bar on Figueroa</b><small>9 min walk · 4.6 rating</small></div>
+              <div class="spot"><b>Tea house on Jefferson</b><small>12 min walk · In-store only</small></div>
+              <div class="order">Order from Dulce</div>
+            </div>
+            <div class="screen" data-panel="friday" role="tabpanel" id="p-friday" aria-labelledby="t-friday" hidden>
+              <div class="fri">
+                <span class="t">FRIDAY 4:00 PM · THIS WEEKEND</span>
+                <span class="n">$86</span>
+                <span class="y">Yours to spend.</span>
+                <div class="aside">
+                  <div><span>Rent</span><span>Set aside</span></div>
+                  <div><span>Phone bill</span><span>Set aside</span></div>
+                  <div><span>Spring break goal</span><span>On track</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="screen arch" data-panel="archetype" role="tabpanel" id="p-archetype" aria-labelledby="t-archetype" hidden>
+              <span class="t">YOUR ARCHETYPE</span>
+              <h5>The Curator</h5>
+              <span style="color:#5f6458;font-size:12px;line-height:1.4">Taste first. You spend on experiences and favorite spots, and save steadily in between.</span>
+              <div class="bar"><i style="width:54%;background:#4f7a1f"></i><i style="width:22%;background:#b9e35b"></i><i style="width:14%;background:#7fb0b0"></i><i style="width:10%;background:#cbb6e6"></i></div>
+              <div class="legend"><span>Curator 54%</span><span>Explorer 22%</span><span>Host 14%</span><span>Planner 10%</span></div>
+              <div class="tiles">
+                <div><small>Spent in October</small><b>$1,064</b></div>
+                <div><small>Saved</small><b>$142</b></div>
+                <div><small>Top category</small><b>Dining · 28%</b></div>
+                <div><small>Favorite spot</small><b>Dulce · 9 visits</b></div>
+              </div>
+            </div>
+          </div>
+          <div class="tabs" role="tablist" aria-label="Demo screens">
+            <button role="tab" id="t-ask" aria-controls="p-ask" aria-selected="true" data-panel="ask" type="button"><b>Just ask</b><span>Finds the spot, applies the partner discount</span></button>
+            <button role="tab" id="t-friday" aria-controls="p-friday" aria-selected="false" data-panel="friday" type="button"><b>The Friday Number</b><span>What's safe to spend this weekend</span></button>
+            <button role="tab" id="t-archetype" aria-controls="p-archetype" aria-selected="false" data-panel="archetype" type="button"><b>Money archetype</b><span>Spending habits as a personality, not a lecture</span></button>
+          </div>
+        </div>
+        <p class="note">Rebuilt here from the website demo I made for the pitch. All figures are example data.</p>
+      </div>
+
+      <div class="chapter" id="f-model">
+        <p class="kicker">04 · Business model</p>
+        <h4>Free for students, paid by merchants.</h4>
+        <div class="flow">
+          <div class="card"><small>A student's month</small><b>$230</b><p>Matcha, boba, lunch, fitness and a Target run, paid with FluoWallet at partner merchants.</p></div>
+          <div class="card lime"><small>Merchants pay 10%</small><b>$23</b><p>Cheaper than ads, and they only pay for real student sales.</p>
+            <div class="split"><div><b>$6.90</b><span>back to the student as FluoCoins</span></div><div><b>$16.10</b><span>kept by Fluo</span></div></div>
+          </div>
+          <div class="card"><small>Later</small><b>$4.99<span style="font-size:.45em;letter-spacing:0">/mo</span></b><p>Fluo+: bigger squads, custom stash rules, detailed analytics, more reward drops.</p></div>
+        </div>
+      </div>
+
+      <div class="chapter" id="f-launch">
+        <p class="kicker">05 · Launch plan</p>
+        <h4>Launch at USC this December. Small commitments first.</h4>
+        <div class="card ask">
+          <div><b>100</b><p><strong>Founding members</strong><span>Club leaders, Greek life, international student leaders, micro-creators</span></p></div>
+          <div><b>10</b><p><strong>Partner merchants</strong><span>Matcha, boba, bowls and studios near campus, 10% on Fluo sales</span></p></div>
+          <div><b>1</b><p><strong>Financial credibility proof</strong><span>A named bank partner or FDIC coverage, because 72% of students worry about privacy</span></p></div>
+        </div>
+        <div class="road">
+          <div class="card"><small>Now · USC</small><b>The Fluo bundle</b><span>FluoState, Stash, FluoCoins and FluoSquad at local partners</span></div>
+          <div class="card"><small>Next · LA campuses</small><b>Big bills through Fluo</b><span>Rent and phone bills paid on Fluo, with only what's left as the yes</span></div>
+          <div class="card"><small>Later · National</small><b>Grows with you</b><span>Student to first-job professional, with partners at each stage</span></div>
+        </div>
+        <div class="card">
+          <p class="kicker" style="margin-bottom:16px">Waitlist to word of mouth</p>
+          <div class="funnel">
+            <div><span>Sign-ups</span><span class="track"><span class="fill" style="--w:100%"></span></span><b>1,000</b></div>
+            <div><span>Connect</span><span class="track"><span class="fill" style="--w:40%"></span></span><b>400</b></div>
+            <div><span>First action</span><span class="track"><span class="fill" style="--w:24%"></span></span><b>240</b></div>
+            <div><span>Repeat</span><span class="track"><span class="fill" style="--w:12%"></span></span><b>120</b></div>
+          </div>
+          <p class="note" style="margin-top:16px">Target funnel from the pitch, with each repeat user's referrals feeding the next round of sign-ups.</p>
+        </div>
+      </div>
     </div>
-    <figure><img src="img/douyin.jpg" alt="Douyin video screenshot from Eva's channel" loading="lazy"></figure>
   </div>
 </section>
 
-<section class="band mustard">
-  <div class="wrap">
-    <div class="proj-head">
-      <h2>Research</h2>
-      <p>Behind the creative work: interviews, surveys and analysis that tell me what to make.</p>
+<!-- NU TEA -->
+<section id="nutea">
+  <div class="wrap story">
+    <div class="story-text">
+      <p class="eyebrow">Brand strategy · Nü Tea, Vancouver · 2025</p>
+      <h3>Repositioning a neighbourhood tea shop</h3>
+      <p>Vancouver's tea market is crowded, and Nü Tea looked like everyone else. As Marketing &amp; Branding Lead, I ran a brand audit and segmented its customers, then repositioned the shop around what set it apart: fresh, clean ingredients from trusted local suppliers.</p>
+      <p>I briefed international designers on the new identity, built a seasonal promotion calendar from the segmentation, and ran bilingual campaigns on Instagram and Xiaohongshu for the key segments.</p>
+      <div class="stats">
+        <div><b>+18%</b><span>Sales from the seasonal promotion strategy</span></div>
+        <div><b>+11%</b><span>Average order value</span></div>
+        <div><b>+1,300%</b><span>Social views</span></div>
+        <div><b>+933%</b><span>Shares</span></div>
+      </div>
+      <p class="tags">Brand audit · Segmentation · Positioning · Promotion strategy</p>
     </div>
-    <div class="cases one">
-      <article class="case">
-        <span class="mono">UBC Sauder School of Business · 2025–now</span>
-        <h3>Small business study</h3>
-        <p>Business Research Assistant on a grounded-theory study of family business succession.</p>
-        <ul>
-          <li>Recruited and interviewed 30+ local small businesses, over 20 hours of qualitative data</li>
-          <li>Designed an AI transcription pipeline that saved 80+ hours of manual work</li>
-          <li>Built 500+ qualitative codes with AI-assisted analysis</li>
-        </ul>
-      </article>
+    <div class="story-media">
+      <img class="reveal" src="img/nutea-bags.jpg" alt="Nü Tea identity on cups and tote bags in white and deep green" loading="lazy" width="1098" height="700">
+      <div class="pair reveal">
+        <img src="img/nutea-mango.jpg" alt="Mango Cheese seasonal drink poster" loading="lazy" width="692" height="922">
+        <img src="img/nutea-strawberry.jpg" alt="Strawberry Milk series poster" loading="lazy" width="648" height="810">
+      </div>
+      <img class="reveal" src="img/nutea-menu.jpg" alt="Nü Tea menu: few categories, with icons for customizations" loading="lazy" width="1100" height="707">
+      <div class="pair reveal">
+        <img src="img/nutea-loyalty.jpg" alt="Nü Tea loyalty stamp card" loading="lazy" width="916" height="523">
+        <img src="img/nutea-event.jpg" alt="Nü Tea event and catering card" loading="lazy" width="914" height="519">
+      </div>
     </div>
   </div>
 </section>
 
-<section class="band paper" id="experience">
+<!-- CHANNELS -->
+<section id="channels" style="padding-top: 0">
+  <div class="wrap channels">
+    <div class="copy reveal">
+      <p class="eyebrow">Audience strategy · Xiaohongshu &amp; Douyin · 2020–now</p>
+      <h3>Testing what audiences respond to, on my own channels</h3>
+      <p>I've run bilingual channels since 2020, and I use them as a lab. Each post tests a hook, a format or a segment, and the analytics tell me what earns attention with Gen Z audiences in China and North America.</p>
+      <p>That audience has brought in 30+ brand partnerships with local and international businesses.</p>
+      <div class="stats">
+        <div><b>12M+</b><span>Views on Douyin, 2024</span></div>
+        <div><b>300K+</b><span>Likes on Douyin</span></div>
+        <div><b>30+</b><span>Brand collaborations on Xiaohongshu</span></div>
+        <div><b>14K+</b><span>Likes and saves on Xiaohongshu</span></div>
+      </div>
+    </div>
+    <div class="media reveal">
+      <img src="img/douyin.jpg" alt="Douyin video from Eva's channel" loading="lazy" width="506" height="1100">
+      <img src="img/rb-montreal.jpg" alt="Xiaohongshu post: three-day Montreal food guide" loading="lazy" width="466" height="742">
+      <img src="img/rb-greek.jpg" alt="Xiaohongshu post: restaurant review" loading="lazy" width="444" height="758">
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research" style="padding-top: 0">
+  <div class="wrap research">
+    <div class="copy reveal">
+      <p class="eyebrow">Qualitative research · UBC Sauder · 2025–now</p>
+      <h3>How small businesses pass the torch</h3>
+    </div>
+    <div class="copy reveal">
+      <p>As a Business Research Assistant, I recruit and interview local small business owners for a grounded-theory study of family business succession. I also designed the AI transcription pipeline the team now uses.</p>
+      <div class="stats">
+        <div><b>30+</b><span>Businesses interviewed</span></div>
+        <div><b>80+</b><span>Hours of manual work saved</span></div>
+        <div><b>500+</b><span>Qualitative codes</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="background: var(--surface)">
   <div class="wrap">
     <div class="xp">
-      <h2>Exper&shy;ience</h2>
+      <h2 class="reveal">Experience</h2>
       <ol>
-        <li><span class="when mono">2026 – 2027</span><div><h4>MS Marketing, Analytics</h4><div class="org">USC Marshall School of Business</div><p>VP, Student Advising Committee. Marketing Case Competition semi-finalist (Fluo).</p></div></li>
-        <li><span class="when mono">2025 – now</span><div><h4>Business Research Assistant</h4><div class="org">UBC Sauder School of Business</div></div></li>
-        <li><span class="when mono">2025</span><div><h4>Marketing &amp; Branding Lead</h4><div class="org">Nü Tea (Top Gain Kao Ltd.), Vancouver</div></div></li>
-        <li><span class="when mono">2024 – 2025</span><div><h4>Regulatory Affairs Intern</h4><div class="org">Daiya Foods, Burnaby</div><p>Advised launches across Canada, the U.S., the EU and Southeast Asia. Automated a 50,000+ data point allergen and certification database, cutting SKU review time 3x.</p></div></li>
-        <li><span class="when mono">2020 – now</span><div><h4>Digital Content Creator</h4><div class="org">Xiaohongshu &amp; Douyin</div></div></li>
-        <li><span class="when mono">2020 – 2026</span><div><h4>BSc Food, Nutrition &amp; Health, Commerce minor</h4><div class="org">University of British Columbia</div></div></li>
+        <li><span class="when">2026 – 2027</span><div><h4>MS Marketing, Analytics</h4><div class="org">USC Marshall School of Business</div><p>VP, Student Advising Committee. Marketing Case Competition semi-finalist (Fluo).</p></div></li>
+        <li><span class="when">2025 – now</span><div><h4>Business Research Assistant</h4><div class="org">UBC Sauder School of Business</div></div></li>
+        <li><span class="when">2025</span><div><h4>Marketing &amp; Branding Lead</h4><div class="org">Nü Tea (Top Gain Kao Ltd.), Vancouver</div></div></li>
+        <li><span class="when">2024 – 2025</span><div><h4>Regulatory Affairs Intern</h4><div class="org">Daiya Foods, Burnaby</div><p>Advised product launches across Canada, the U.S., the EU and Southeast Asia. Automated a 50,000+ data point allergen and certification database, cutting SKU review time 3x.</p></div></li>
+        <li><span class="when">2020 – now</span><div><h4>Digital Content Creator</h4><div class="org">Xiaohongshu &amp; Douyin</div></div></li>
+        <li><span class="when">2020 – 2026</span><div><h4>BSc Food, Nutrition &amp; Health, Commerce minor</h4><div class="org">University of British Columbia</div></div></li>
       </ol>
     </div>
     <div class="skills">
-      <div><h4 class="label">Tools</h4><p>Canva, Figma, CapCut, HubSpot, Salesforce, Qualtrics, Google Analytics, Google Trends, NVivo</p></div>
-      <div><h4 class="label">Analytics</h4><p>Python, Stata, Excel, regression modeling, survey design, data visualization, thematic analysis</p></div>
-      <div><h4 class="label">Certifications</h4><p>Google Digital Marketing &amp; E-commerce, Marketing with Canva, Storytelling for Digital Marketing (Santander), PwC Management Consulting simulation, LVMH Insider</p></div>
+      <div><h4>Research &amp; analytics</h4><p>Survey design, in-depth interviews, regression modeling, thematic analysis, data visualization. Python, Stata, Excel, Qualtrics, NVivo</p></div>
+      <div><h4>Marketing tools</h4><p>HubSpot, Salesforce, Google Analytics, Google Trends, Figma, Canva</p></div>
+      <div><h4>Certifications</h4><p>Google Digital Marketing &amp; E-commerce, PwC Management Consulting simulation, LVMH Insider, Storytelling for Digital Marketing (Santander)</p></div>
     </div>
   </div>
 </section>
 
-<section class="band sage" id="contact">
+<section id="contact">
   <div class="wrap contact">
-    <div>
-      <h2>Work<br>with me</h2>
-      <p style="margin-top:20px;font-size:18px">Open to marketing, brand and content roles, and to collaborations.</p>
-      <div class="contact-lines">
-        <div class="contact-line"><span class="label">Email</span><span class="val" id="email">yangeva0616@gmail.com</span><button class="copy-btn" id="copy-email" type="button">Copy</button></div>
-        <div class="contact-line"><span class="label">LinkedIn</span><a class="val" href="https://www.linkedin.com/in/evayang02/" target="_blank" rel="noopener">linkedin.com/in/evayang02</a></div>
+    <div class="reveal">
+      <h2>Let's talk.</h2>
+      <p class="lede" style="margin-top:20px">Open to brand strategy, marketing and consumer insights roles.</p>
+      <div class="lines">
+        <div class="line"><span class="k">Email</span><span class="val" id="email">yangeva0616@gmail.com</span><button class="copy-btn" id="copy-email" type="button">Copy</button></div>
+        <div class="line"><span class="k">LinkedIn</span><a class="val" href="https://www.linkedin.com/in/evayang02/" target="_blank" rel="noopener">linkedin.com/in/evayang02</a></div>
       </div>
     </div>
-    <figure><img src="img/contact.jpg" alt="Eva Yang holding a bouquet" loading="lazy"></figure>
+    <figure class="reveal"><img src="img/contact.jpg" alt="Eva Yang" loading="lazy" width="556" height="562"></figure>
   </div>
 </section>
 
 <footer><div class="wrap"><span>© 2026 Eva (Fan) Yang</span><span>Los Angeles · Vancouver</span></div></footer>
 
 <script>
-document.getElementById('copy-email').addEventListener('click', function () {
-  var btn = this, text = document.getElementById('email').textContent;
-  function done(msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); }
-  function fallback() {
-    var r = document.createRange(); r.selectNodeContents(document.getElementById('email'));
-    var s = getSelection(); s.removeAllRanges(); s.addRange(r); done('Selected');
+(function () {
+  var root = document.documentElement;
+  root.classList.add('js');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Highlight the Fluo step whose chapter is in the middle of the screen
+  var links = document.querySelectorAll('.steps a');
+  var stepObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      links.forEach(function (a) { a.classList.toggle('on', a.dataset.step === e.target.id); });
+    });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  document.querySelectorAll('#fluo .chapter').forEach(function (c) { stepObs.observe(c); });
+
+  // Count up research numbers the first time they appear
+  var countObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      countObs.unobserve(e.target);
+      if (reduce) return;
+      var el = e.target, end = +el.dataset.count, t0 = null;
+      function tick(t) {
+        if (!t0) t0 = t;
+        var p = Math.min((t - t0) / 1100, 1), v = Math.round(end * (1 - Math.pow(1 - p, 3)));
+        el.textContent = v + '%';
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }, { threshold: .6 });
+  document.querySelectorAll('[data-count]').forEach(function (el) { countObs.observe(el); });
+
+  // Funnel bars grow in
+  var funnel = document.querySelector('.funnel');
+  new IntersectionObserver(function (entries, o) {
+    if (entries[0].isIntersecting) { funnel.classList.add('in'); o.disconnect(); }
+  }, { threshold: .4 }).observe(funnel);
+
+  // Chat demo: play the conversation when the phone comes into view
+  var ask = document.querySelector('.screen[data-panel="ask"]');
+  var items = Array.prototype.slice.call(ask.children);
+  var typing = ask.querySelector('.typing');
+  var timers = [];
+  function playChat() {
+    timers.forEach(clearTimeout); timers = [];
+    items.forEach(function (el) { el.classList.remove('show'); });
+    if (reduce) { items.forEach(function (el) { if (el !== typing) el.classList.add('show'); }); typing.hidden = true; return; }
+    typing.hidden = false;
+    var plan = [[0, 0], [600, 1], [1900, 2], [2400, 3], [2700, 4], [3000, 5], [3400, 6]];
+    plan.forEach(function (s) {
+      timers.push(setTimeout(function () {
+        if (s[1] === 2) typing.hidden = true;
+        items[s[1]].classList.add('show');
+      }, s[0]));
+    });
   }
-  try { navigator.clipboard.writeText(text).then(function () { done('Copied'); }, fallback); } catch (e) { fallback(); }
-});
+  var played = false;
+  new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting && !played) { played = true; playChat(); }
+  }, { threshold: .5 }).observe(document.querySelector('.phone'));
+
+  // Demo tabs
+  var tabs = document.querySelectorAll('.tabs button');
+  tabs.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      tabs.forEach(function (b) { b.setAttribute('aria-selected', b === btn ? 'true' : 'false'); });
+      document.querySelectorAll('.phone .screen').forEach(function (s) { s.hidden = s.dataset.panel !== btn.dataset.panel; });
+      if (btn.dataset.panel === 'ask') playChat();
+    });
+  });
+
+  // Copy email
+  document.getElementById('copy-email').addEventListener('click', function () {
+    var btn = this, el = document.getElementById('email');
+    function done(msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); }
+    function fallback() { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); done('Selected'); }
+    try { navigator.clipboard.writeText(el.textContent).then(function () { done('Copied'); }, fallback); } catch (e) { fallback(); }
+  });
+})();
 </script>
 </body>
 </html>
