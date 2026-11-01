@@ -246,6 +246,7 @@ nav ul a:hover { color: var(--ink); }
 /* research */
 .research { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
 .research .copy { display: grid; gap: 22px; }
+.research > .copy:first-child { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 92px); }
 .research .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
 /* experience */
@@ -265,10 +266,9 @@ nav ul a:hover { color: var(--ink); }
 
 /* interests: deliberately compact, one screen at most */
 .likes { margin: 0; display: grid; border-top: 1px solid var(--line); }
-.likes div { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 16px; padding-block: 14px; border-bottom: 1px solid var(--line); }
+.likes div { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 16px; padding-block: 22px; border-bottom: 1px solid var(--line); }
 .likes dt { font: 400 22px/1.1 var(--display); letter-spacing: .02em; padding-top: 1px; }
-.likes dd { margin: 0; font-size: 15px; color: var(--muted); }
-.heart { font-size: 15px; color: var(--muted); }
+.likes dd { margin: 0; font-size: 16px; color: var(--muted); }
 .heart b { display: block; margin-bottom: 8px; font: 400 clamp(30px, 3vw, 38px)/1 var(--display); letter-spacing: .01em; color: var(--ink); }
 .heart strong { color: var(--ink); font-weight: 600; }
 .heart b span { color: var(--figure); }
@@ -308,7 +308,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   .chapter { min-height: 0; padding-block: 56px 0; }
   .fluo-stage { padding-block: 160px; }
   .skills { grid-template-columns: minmax(0, 1fr); }
-  .xp h2 { position: static; }
+  .xp h2, .research > .copy:first-child { position: static; }
 }
 @media (max-width: 680px) {
   nav ul li:not(:last-child) { display: none; }
@@ -625,20 +625,20 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 </section>
 
 <section id="interests">
-  <div class="wrap research">
-    <div class="copy reveal">
+  <div class="wrap story">
+    <div class="story-text">
       <h3>Off the clock</h3>
-      <p>Most of what I love comes down to exploring: new scents, new flavours, new places.</p>
+      <p class="heart"><b>At heart, I'm <span>Wuhanese</span>.</b>Nothing beats a bowl of <strong>热干面</strong> (reganmian): hot dry noodles coated in an equally dry sesame paste, born on the Hankou docks in the 1930s as a quick, filling breakfast for dockworkers.</p>
+      <p>From there, most of what I love comes down to exploring: new scents, new flavours, new places.</p>
     </div>
-    <div class="copy reveal">
-      <dl class="likes">
-        <div><dt>Smell</dt><dd>I'm drawn to warm, woody scents: santal, pink pepper rose and osmanthus. At home, a few drops of bergamot or rose oil make a room feel like mine.</dd></div>
+    <div class="story-media">
+      <dl class="likes reveal">
+        <div><dt>Smell</dt><dd>I reach for santal, pink pepper rose and osmanthus: cool, woody, unisex scents that help me unwind. They're easy to share with almost anyone, and quietly say calm, mature and capable. At home, it's bergamot and rose oils.</dd></div>
         <div><dt>Sip</dt><dd>My days start with an iced pour-over, Geisha beans if I can get them, and wind down with a glass of French or Napa Chardonnay.</dd></div>
         <div><dt>Savour</dt><dd>Good olive oil, a bowl of olives and warm focaccia, and I'm content. I'll gladly eat my way through Chinese, Korean, Japanese and Italian food.</dd></div>
-        <div><dt>Play</dt><dd>I traded the gym for badminton. I get at least one practice in every week in LA, all so I can go home and beat some uncs and friends in Vancouver and Calgary.</dd></div>
+        <div><dt>Play</dt><dd>I traded the gym for badminton. I get at least one practice in every week in LA, all so I can beat some uncs and friends back home in Vancouver and Calgary.</dd></div>
         <div><dt>Wander</dt><dd>I love getting lost somewhere new: the concrete jungle of New York, cyberpunk Chongqing, K-drama Seoul, and every themed café I find along the way.</dd></div>
       </dl>
-      <p class="heart"><b>But at heart, I'm <span>Wuhanese</span>.</b>And deeply devoted to <strong>热干面</strong> (reganmian): hot dry noodles coated in an equally dry sesame paste, born on the Hankou docks in the 1930s as a quick, filling breakfast for dockworkers.</p>
     </div>
   </div>
 </section>
