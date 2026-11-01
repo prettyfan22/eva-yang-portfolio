@@ -266,9 +266,11 @@ nav ul a:hover { color: var(--ink); }
 
 /* interests: deliberately compact, one screen at most */
 .likes { margin: 0; display: grid; border-top: 1px solid var(--line); }
-.likes div { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 16px; padding-block: 22px; border-bottom: 1px solid var(--line); }
+.likes div { display: grid; grid-template-columns: 96px minmax(0, 1fr) 128px; gap: 16px 20px; align-items: start; padding-block: 22px; border-bottom: 1px solid var(--line); }
 .likes dt { font: 400 22px/1.1 var(--display); letter-spacing: .02em; padding-top: 1px; }
 .likes dd { margin: 0; font-size: 16px; color: var(--muted); }
+.likes img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 14px; }
+.roots { width: min(100%, 240px); aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius); }
 .heart b { display: block; margin-bottom: 8px; font: 400 clamp(30px, 3vw, 38px)/1 var(--display); letter-spacing: .01em; color: var(--ink); }
 .heart strong { color: var(--ink); font-weight: 600; }
 .heart b span { color: var(--figure); }
@@ -319,6 +321,8 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   .ledger b, .ask b { font-size: 42px; }
   .big-stats .card { min-height: 0; }
   .caps { grid-template-columns: minmax(0, 1fr); }
+  .likes div { grid-template-columns: minmax(0, 1fr) 96px; }
+  .likes dt { grid-column: 1 / -1; }
   .research .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .xp li { grid-template-columns: minmax(0, 1fr); }
   .map .dot { font-size: 10px; }
@@ -628,16 +632,17 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   <div class="wrap story">
     <div class="story-text">
       <h3>Off the clock</h3>
+      <img class="roots" src="img/wuhan.jpg" alt="Eva by a pink sign reading 我在武汉很想你, I miss you in Wuhan" loading="lazy" width="640" height="800">
       <p class="heart"><b>At heart, I'm <span>Wuhanese</span>.</b>Nothing beats a bowl of <strong>热干面</strong> (reganmian): hot dry noodles coated in an equally dry sesame paste, born on the Hankou docks in the 1930s as a quick, filling breakfast for dockworkers.</p>
       <p>From there, most of what I love comes down to exploring: new scents, new flavours, new places.</p>
     </div>
     <div class="story-media">
       <dl class="likes reveal">
-        <div><dt>Smell</dt><dd>For perfume, I reach for santal, pink pepper rose and osmanthus: cool, woody, unisex scents that help me unwind. They're easy to share with almost anyone, and quietly say calm, mature and capable. At home, it's bergamot and rose oils.</dd></div>
-        <div><dt>Sip</dt><dd>My mornings start with an iced pour-over, made with Geisha beans if my budget worked out that month. My evenings end with a glass of French or Napa Chardonnay.</dd></div>
-        <div><dt>Savour</dt><dd>On weekends I bake rosemary and olive focaccia, mostly because I love the smell of the dough as it ferments. Food is my favourite way to get to know a culture, so I'll happily eat my way through Chinese, Korean, Japanese and Italian kitchens.</dd></div>
-        <div><dt>Play</dt><dd>I traded the gym for badminton. I get at least one practice in every week in LA, all so I can beat some uncs and friends back home in Vancouver and Calgary.</dd></div>
-        <div><dt>Wander</dt><dd>I love getting lost somewhere new: the concrete jungle of New York, cyberpunk Chongqing, K-drama Seoul, and every themed café I find along the way.</dd></div>
+        <div><dt>Smell</dt><dd>For perfume, I reach for santal, pink pepper rose and osmanthus: cool, woody, unisex scents that help me unwind. They're easy to share with almost anyone, and quietly say calm, mature and capable. At home, it's bergamot and rose oils.</dd><img src="img/like-smell.jpg" alt="Holding a bottle of Serge Lutens perfume" loading="lazy" width="640" height="800"></div>
+        <div><dt>Sip</dt><dd>My mornings start with an iced pour-over, made with Geisha beans if my budget worked out that month. My evenings end with a glass of French or Napa Chardonnay.</dd><img src="img/like-sip.jpg" alt="Two glasses of white wine clinking" loading="lazy" width="640" height="800"></div>
+        <div><dt>Savour</dt><dd>On weekends I bake rosemary and olive focaccia, mostly because I love the smell of the dough as it ferments. Food is my favourite way to get to know a culture, so I'll happily eat my way through Chinese, Korean, Japanese and Italian kitchens.</dd><img src="img/like-savour.jpg" alt="Homemade focaccia with tomatoes, olives and rosemary, next to a bottle of olive oil" loading="lazy" width="640" height="800"></div>
+        <div><dt>Play</dt><dd>I traded the gym for badminton. I get at least one practice in every week in LA, all so I can beat some uncs and friends back home in Vancouver and Calgary.</dd><img src="img/like-play.jpg" alt="Badminton rackets and snacks on a court" loading="lazy" width="640" height="800"></div>
+        <div><dt>Wander</dt><dd>I love getting lost somewhere new: the concrete jungle of New York, cyberpunk Chongqing, K-drama Seoul, and every themed café I find along the way.</dd><img src="img/like-wander.jpg" alt="Eva in a hanbok at Gyeongbokgung Palace, Seoul" loading="lazy" width="640" height="800"></div>
       </dl>
     </div>
   </div>
