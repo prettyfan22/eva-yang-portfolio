@@ -667,7 +667,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
           <div data-like="smell"><dt>Smell</dt><dd>For perfume, I reach for santal, pink pepper rose and osmanthus: cool, woody, unisex scents that help me unwind. They're easy to share with almost anyone, and quietly say calm, mature and capable. At home, it's bergamot and rose oils.</dd></div>
           <div data-like="sip"><dt>Sip</dt><dd>My mornings start with an iced pour-over, made with Geisha beans if my budget worked out that month. My evenings end with a glass of French or Napa Chardonnay.</dd></div>
           <div data-like="savour"><dt>Savour</dt><dd>On weekends I bake rosemary and olive focaccia, mostly because I love the smell of the dough as it ferments. Food is my favourite way to get to know a culture, so I'll happily eat my way through Chinese, Korean, Japanese and Italian kitchens.</dd></div>
-          <div data-like="play"><dt>Play</dt><dd>I traded the gym for badminton. I get at least one practice in every week in LA, all so I can beat some uncs and friends back home in Vancouver and Calgary.</dd></div>
+          <div data-like="play"><dt>Play</dt><dd>I recently traded the gym for badminton, and it turned out to be the perfect outlet for my competitive side. I get at least one practice in every week in LA, all so I can beat some uncs and friends back home in Vancouver and Calgary.</dd></div>
           <div data-like="wander"><dt>Wander</dt><dd>I love getting lost somewhere new: the concrete jungle of New York, cyberpunk Chongqing, K-drama Seoul, and every themed café I find along the way.</dd></div>
         </dl>
       </div>
@@ -800,7 +800,6 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
       introH: introH,
       frameFrom: introTop + introH + 28,
       frameTo: (stageH - h) / 2,
-      listFrom: introTop,
       listTo: stageH / 2 - centers[0],
       centers: centers,
       lead: stageH * .9,                                   // scroll spent lifting the intro and centring
@@ -820,7 +819,10 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     likesIntro.style.transform = 'translateY(' + (-p * (dial.introH + 80)) + 'px)';
     likesIntro.style.opacity = 1 - clamp(p * 1.4);
     frame.style.transform = 'translateY(' + (dial.frameFrom + (dial.frameTo - dial.frameFrom) * p) + 'px)';
-    likesList.style.transform = 'translateY(' + (dial.listFrom + (dial.listTo - dial.listFrom) * p - d) + 'px)';
+    // the list waits off to the side and only rises in once the photo has settled in the centre
+    var enter = clamp((p - .55) / .45);
+    likesList.style.opacity = enter;
+    likesList.style.transform = 'translateY(' + (dial.listTo + (1 - enter) * 60 - d) + 'px)';
     var dialing = p >= .98;
     likesList.classList.toggle('dialing', dialing);
     if (!dialing) { showLike('roots'); return; }
