@@ -28,7 +28,7 @@ export default function Home() {
         <div className="wrap">
           <div className="work-head">
             <h2>Selected work</h2>
-            <p className="lede">From the first interview to the launch plan: a fintech launch at USC, a small-business rebrand in Vancouver, audience strategy on my own channels and qualitative research at UBC.</p>
+            <p className="lede">From the first interview to the launch plan: a fintech launch at USC, a small-business rebrand in Vancouver, audience strategy on my own channels and qualitative research at the University of British Columbia&apos;s Sauder School of Business.</p>
           </div>
           <div className="tiles">
             <Tile href="/fluo" title="Fluo" tags="Research · Positioning · Business model · Launch plan" flag="Semi-finalist" artClass="fluo-art">
