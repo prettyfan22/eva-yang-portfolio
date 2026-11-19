@@ -35,7 +35,7 @@ export default function Home() {
               <span className="fluo-mark" aria-hidden="true">fluo<i>.</i></span>
             </Tile>
             <Tile href="/nutea" title="Nü Tea" tags="Brand audit · Segmentation · Repositioning · Promotions" artClass="logo-art nutea-art">
-              <img src="/img/logo-nutea.png" alt="" width="1000" height="305" />
+              <img src="/img/logo-nutea-light.png" alt="" width="1000" height="305" />
             </Tile>
             <Tile href="/channels" title="Audience lab" tags="Bilingual content strategy · Douyin · Xiaohongshu" artClass="logo-art icon xhs-art">
               <img src="/img/logo-xhs.png" alt="" width="256" height="256" />
