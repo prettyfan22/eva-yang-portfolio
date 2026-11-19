@@ -31,7 +31,7 @@ export default function Home() {
             <p className="lede">From the first interview to the launch plan: a fintech launch at USC, a small-business rebrand in Vancouver, client briefs for Archer Aviation and Earthmeal, pitches for Louis Vuitton and Airbnb, audience strategy on my own channels and qualitative research at the University of British Columbia&apos;s Sauder School of Business.</p>
           </div>
           <div className="tiles">
-            <Tile href="/fluo" title="Fluo" tags="Research · Positioning · Business model · Launch plan" flag="Semi-finalist" artClass="fluo-art">
+            <Tile href="/fluo" title="Fluo" tags="Research · Positioning · Business model · Launch plan" flag="Semi-finalist" artClass="fluo-art" wide>
               <span className="fluo-mark" aria-hidden="true">fluo<i>.</i></span>
             </Tile>
             <Tile href="/nutea" title="Nü Tea" tags="Brand audit · Segmentation · Repositioning · Promotions" artClass="logo-art nutea-art">
@@ -40,7 +40,7 @@ export default function Home() {
             <Tile href="/archer" title="Archer Aviation" tags="Integrated marketing plan · LA28 · Market analysis" artClass="logo-art archer-art">
               <img src="/img/logo-archer.svg" alt="" width="180" height="44" />
             </Tile>
-            <Tile href="/reborn" title="Reborn by Louis Vuitton" tags="Product launch pitch · Luxury fragrance" artClass="logo-art lv-art">
+            <Tile href="/reborn" title="Reborn by LV" tags="Product launch pitch · Luxury fragrance" artClass="logo-art lv-art">
               <img src="/img/logo-lv.png" alt="" width="661" height="800" />
             </Tile>
             <Tile href="/earthmeal" title="Earthmeal" tags="Experiential event · Live social campaign" artClass="logo-art earthmeal-art">
