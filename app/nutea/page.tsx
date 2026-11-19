@@ -45,7 +45,7 @@ export default function Nutea() {
         </div>
       </section>
 
-      <div className="wrap next"><Link href="/channels"><span><small>Next project</small><b>Audience lab</b></span><span className="arrow" aria-hidden="true">→</span></Link></div>
+      <div className="wrap next"><Link href="/archer"><span><small>Next project</small><b>Archer Aviation</b></span><span className="arrow" aria-hidden="true">→</span></Link></div>
     </>
   );
 }

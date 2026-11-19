@@ -472,6 +472,41 @@
   .next .arrow { font-size: clamp(32px, 4vw, 56px); transition: transform .3s; }
   .next a:hover .arrow { transform: translateX(8px); }
 
+  /* light case-study building blocks, used on the newer project pages */
+  .chapter-l { display: grid; gap: 20px; padding-block: clamp(24px, 3vw, 40px); }
+  .chapter-l h4 { margin: 0; max-width: 20ch; font: 400 clamp(32px, 3.4vw, 44px)/.95 var(--display); letter-spacing: .01em; }
+  .bigq { max-width: 38ch; font-size: clamp(19px, 1.9vw, 24px); line-height: 1.4; letter-spacing: -0.01em; color: var(--ink); }
+  .bigq em { font-style: normal; color: var(--figure); }
+  .pcard { display: grid; gap: 10px; align-content: start; padding: clamp(20px, 2.6vw, 30px); border-radius: var(--r-lg); background: var(--surface); }
+  .pcard h5 { margin: 0; font: 400 clamp(24px, 2.2vw, 30px)/1 var(--display); letter-spacing: .01em; }
+  .pcard p { font-size: 15px; color: var(--ink-2); }
+  .pcard.feature h5 { font-size: clamp(40px, 4.4vw, 60px); color: var(--figure); }
+  .pcard .tagline { font-size: 17px; font-weight: 600; color: var(--ink); }
+  .pgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .pgrid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .chips { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips li { padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; }
+  .timeline-l { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .timeline-l li { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 16px; padding-block: 16px; border-bottom: 1px solid var(--line); font-size: 15px; color: var(--ink-2); }
+  .timeline-l b { font: 400 24px/1.1 var(--display); letter-spacing: .02em; color: var(--ink); }
+  .timeline-l strong { color: var(--ink); font-weight: 600; }
+  .kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .kpis b { display: block; font: 400 clamp(40px, 4vw, 56px)/1 var(--display); color: var(--figure); }
+  .kpis span { display: block; margin-top: 6px; font-size: 14px; line-height: 1.4; color: var(--ink-2); }
+  .alloc { display: flex; gap: 3px; height: 14px; border-radius: 99px; overflow: hidden; }
+  .alloc i { display: block; height: 100%; }
+  .legend-l { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 14px; color: var(--ink-2); }
+  .legend-l span::before { content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 6px; border-radius: 50%; background: var(--c); }
+  .note-l { font-size: 14px; color: var(--ink-2); }
+  .slides .zoom img { box-shadow: 0 1px 0 var(--line), 0 18px 40px -28px rgba(0, 0, 0, .35); }
+
+  /* covers for the newer projects, same recipe as Fluo */
+  .art.archer-art { background: radial-gradient(circle at 72% 26%, rgba(120, 140, 255, .3), transparent 55%), radial-gradient(circle at 18% 88%, rgba(255, 150, 100, .16), transparent 50%), #0c0e14; }
+  .art.lv-art { background: radial-gradient(circle at 70% 28%, rgba(217, 192, 138, .28), transparent 55%), radial-gradient(circle at 20% 85%, rgba(120, 72, 40, .4), transparent 55%), #17110c; }
+  .tile .art.lv-art > img { max-height: 42%; transform: translateY(-24%); }
+  .art.earthmeal-art { background: radial-gradient(circle at 72% 28%, rgba(210, 180, 120, .26), transparent 55%), radial-gradient(circle at 18% 88%, rgba(110, 150, 80, .24), transparent 50%), #161410; }
+  .art.airbnb-art { background: radial-gradient(circle at 70% 28%, rgba(255, 90, 95, .32), transparent 55%), radial-gradient(circle at 18% 88%, rgba(255, 170, 160, .12), transparent 50%), #0f110e; }
+
   /* about page */
   .about-hero { padding-block: clamp(48px, 6vw, 88px) clamp(64px, 8vw, 112px); }
   .about-hero .wrap { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
@@ -485,7 +520,8 @@
     .about-hero figure { max-width: 420px; }
   }
   @media (max-width: 680px) {
-    .tiles, .do-list, .meta { grid-template-columns: minmax(0, 1fr); }
+    .tiles, .do-list, .meta, .pgrid, .pgrid.two, .kpis { grid-template-columns: minmax(0, 1fr); }
+  .timeline-l li { grid-template-columns: 72px minmax(0, 1fr); }
     .tile { aspect-ratio: 4 / 5; }
     .tile .cap { left: 20px; right: 20px; bottom: 20px; }
     nav ul a.pill { min-width: 0; padding: 6px 14px; }

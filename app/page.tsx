@@ -28,7 +28,7 @@ export default function Home() {
         <div className="wrap">
           <div className="work-head">
             <h2>Selected work</h2>
-            <p className="lede">From the first interview to the launch plan: a fintech launch at USC, a small-business rebrand in Vancouver, audience strategy on my own channels and qualitative research at the University of British Columbia&apos;s Sauder School of Business.</p>
+            <p className="lede">From the first interview to the launch plan: a fintech launch at USC, a small-business rebrand in Vancouver, client briefs for Archer Aviation and Earthmeal, pitches for Louis Vuitton and Airbnb, audience strategy on my own channels and qualitative research at the University of British Columbia&apos;s Sauder School of Business.</p>
           </div>
           <div className="tiles">
             <Tile href="/fluo" title="Fluo" tags="Research · Positioning · Business model · Launch plan" flag="Semi-finalist" artClass="fluo-art">
@@ -36,6 +36,18 @@ export default function Home() {
             </Tile>
             <Tile href="/nutea" title="Nü Tea" tags="Brand audit · Segmentation · Repositioning · Promotions" artClass="logo-art nutea-art">
               <img src="/img/logo-nutea-light.png" alt="" width="1000" height="305" />
+            </Tile>
+            <Tile href="/archer" title="Archer Aviation" tags="Integrated marketing plan · LA28 · Market analysis" artClass="logo-art archer-art">
+              <img src="/img/logo-archer.svg" alt="" width="180" height="44" />
+            </Tile>
+            <Tile href="/reborn" title="Reborn by Louis Vuitton" tags="Product launch pitch · Luxury fragrance" artClass="logo-art lv-art">
+              <img src="/img/logo-lv.png" alt="" width="661" height="800" />
+            </Tile>
+            <Tile href="/earthmeal" title="Earthmeal" tags="Experiential event · Live social campaign" artClass="logo-art earthmeal-art">
+              <img src="/img/logo-earthmeal.svg" alt="" width="556" height="88" />
+            </Tile>
+            <Tile href="/airbnb" title="Airbnb" tags="Crisis communication · Stakeholder trust" artClass="logo-art airbnb-art">
+              <img src="/img/logo-airbnb.svg" alt="" width="320" height="100" />
             </Tile>
             <Tile href="/channels" title="Audience lab" tags="Bilingual content strategy · Douyin · Xiaohongshu" artClass="logo-art icon xhs-art">
               <img src="/img/logo-xhs.png" alt="" width="256" height="256" />
