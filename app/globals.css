@@ -111,6 +111,8 @@
 
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
+  /* touch screens get a gentle snap at the project grid; mouse and trackpad use the detent in WorkDetent */
+  @media (pointer: coarse) { html { scroll-snap-type: y proximity; } }
   body { margin: 0; background: var(--bg); color: var(--ink); font: 400 17px/1.55 var(--font); -webkit-font-smoothing: antialiased; }
   img { display: block; max-width: 100%; height: auto; }
   a { color: inherit; }
@@ -119,6 +121,7 @@
   [hidden] { display: none !important; }
 
   .wrap { max-width: 1200px; margin: 0 auto; padding-left: max(22px, env(safe-area-inset-left, 0px)); padding-right: max(22px, env(safe-area-inset-right, 0px)); }
+  .wrap.wrap-wide { max-width: 1440px; }
   section { padding-block: clamp(72px, 9vw, 120px); }
 
   h1, h2, h3, h4 { margin: 0; font-weight: 600; letter-spacing: -0.015em; text-wrap: balance; }
@@ -409,9 +412,9 @@
 
   /* homepage work grid */
   .work-head { display: grid; gap: 16px; margin-bottom: clamp(32px, 4vw, 48px); }
-  .tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 2vw, 24px); container-type: inline-size; }
+  .tiles { scroll-snap-align: start; scroll-margin-top: calc(53px + 16px); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 2vw, 24px); container-type: inline-size; }
   /* each project is a cover (the brand logo, centred) with its name and focus underneath */
-  .tile { position: relative; display: grid; gap: 12px; align-content: start; color: var(--ink); text-decoration: none; }
+  .tile { position: relative; display: grid; gap: 10px; align-content: start; color: var(--ink); text-decoration: none; }
   .tile .art { position: relative; display: grid; grid-template-rows: 100%; place-items: center; height: calc(100cqw * .75); border-radius: var(--r-lg); overflow: hidden; background: var(--surface); }
   @media (min-width: 681px) {
     .tile .art { height: calc((100cqw - clamp(16px, 2vw, 24px)) / 2 * .62); }
@@ -420,12 +423,12 @@
   @media (min-width: 921px) {
     .tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: clamp(24px, 2.6vw, 36px); }
     .tile.wide { grid-column: span 2; }
-    .tile .art { height: calc((100cqw - 2 * clamp(16px, 2vw, 24px)) / 3 * .56); }
+    .tile .art { height: max(200px, min(calc((100cqw - 2 * clamp(16px, 2vw, 24px)) / 3 * .66), calc((100svh - 53px - 16px - 2 * 58px - 2 * clamp(24px, 2.6vw, 36px) - 110px) / 2))); }
   }
   .tile .art > img { width: 100%; height: 100%; object-fit: cover; }
   .tile .cap { display: grid; gap: 3px; }
-  .tile .cap b { font: 400 clamp(24px, 2vw, 30px)/1 var(--display); letter-spacing: .01em; }
-  .tile .cap span { font-size: 14px; color: var(--ink-2); }
+  .tile .cap b { font: 400 clamp(20px, 1.6vw, 24px)/1 var(--display); letter-spacing: .02em; }
+  .tile .cap span { font-size: 13px; color: var(--ink-2); }
   .tile .flag { position: absolute; top: 16px; left: 16px; z-index: 2; padding: 6px 12px; border-radius: 999px; background: var(--f-lime); color: #10120e; font-size: 13px; font-weight: 600; }
   .art.fluo-art { background: radial-gradient(circle at 72% 28%, rgba(185, 227, 91, .28), transparent 55%), radial-gradient(circle at 20% 85%, rgba(234, 147, 229, .18), transparent 50%), #0f110e; }
   .fluo-mark { font: 700 clamp(60px, 8vw, 110px)/1 var(--fluo); letter-spacing: -0.06em; color: var(--f-ink); }

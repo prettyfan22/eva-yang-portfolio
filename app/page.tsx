@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Tile } from "@/components/tile";
+import { WorkDetent } from "@/components/work-detent";
 
 export default function Home() {
   return (
@@ -25,11 +26,14 @@ export default function Home() {
       </header>
 
       <section id="work" style={{paddingTop: '0'}}>
+        <WorkDetent />
         <div className="wrap">
           <div className="work-head">
             <h2>Selected work</h2>
             <p className="lede">From the first interview to the launch plan: a fintech launch at USC, a small-business rebrand in Vancouver, client briefs for Archer Aviation and Earthmeal, pitches for Louis Vuitton and Airbnb, audience strategy on my own channels and qualitative research at the University of British Columbia&apos;s Sauder School of Business.</p>
           </div>
+        </div>
+        <div className="wrap wrap-wide">
           <div className="tiles">
             <Tile href="/fluo" title="Fluo" tags="Research · Positioning · Business model · Launch plan" flag="Semi-finalist" artClass="fluo-art" wide>
               <span className="fluo-mark" aria-hidden="true">fluo<i>.</i></span>
