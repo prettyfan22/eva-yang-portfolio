@@ -34,14 +34,14 @@ export default function Home() {
             <Tile href="/fluo" title="Fluo" tags="Research · Positioning · Business model · Launch plan" flag="Semi-finalist" artClass="fluo-art">
               <span className="fluo-mark" aria-hidden="true">fluo<i>.</i></span>
             </Tile>
-            <Tile href="/nutea" title="Nü Tea" tags="Brand audit · Segmentation · Repositioning · Promotions" artClass="logo-art" artStyle={{ background: "#f4f0e6" }} light>
-              <img src="/img/logo-nutea.png" alt="" width="759" height="243" />
+            <Tile href="/nutea" title="Nü Tea" tags="Brand audit · Segmentation · Repositioning · Promotions" artClass="logo-art nutea-art">
+              <img src="/img/logo-nutea.png" alt="" width="1000" height="305" />
             </Tile>
-            <Tile href="/channels" title="Audience lab" tags="Bilingual content strategy · Douyin · Xiaohongshu" artClass="logo-art icon" artStyle={{ background: "#fbe9eb" }} light>
+            <Tile href="/channels" title="Audience lab" tags="Bilingual content strategy · Douyin · Xiaohongshu" artClass="logo-art icon xhs-art">
               <img src="/img/logo-xhs.png" alt="" width="256" height="256" />
             </Tile>
-            <Tile href="/research" title="Passing the torch" tags="Qualitative research · UBC Sauder" artClass="logo-art" artStyle={{ background: "#eef1f5" }} light>
-              <img src="/img/logo-sauder.png" alt="" width="716" height="174" />
+            <Tile href="/research" title="Passing the torch" tags="Qualitative research · UBC Sauder" artClass="logo-art sauder-art">
+              <img src="/img/logo-sauder-white.png" alt="" width="716" height="174" />
             </Tile>
           </div>
         </div>
