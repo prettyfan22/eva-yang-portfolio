@@ -120,8 +120,7 @@
   a:focus-visible, button:focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; border-radius: 6px; }
   [hidden] { display: none !important; }
 
-  .wrap { max-width: 1200px; margin: 0 auto; padding-left: max(22px, env(safe-area-inset-left, 0px)); padding-right: max(22px, env(safe-area-inset-right, 0px)); }
-  .wrap.wrap-wide { max-width: 1440px; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding-left: max(22px, env(safe-area-inset-left, 0px)); padding-right: max(22px, env(safe-area-inset-right, 0px)); }
   section { padding-block: clamp(72px, 9vw, 120px); }
 
   h1, h2, h3, h4 { margin: 0; font-weight: 600; letter-spacing: -0.015em; text-wrap: balance; }
